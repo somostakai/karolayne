@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ site_nome }} — {{ tagline }}</title>
+<meta name="description" content="{{ descricao }}" />
+<link rel="canonical" href="{{ url_canonica }}" />
+<link rel="icon" href="{{ logo }}" />
+<link rel="stylesheet" href="estilo.css" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ site_nome }}" />
+<meta property="og:description" content="{{ descricao }}" />
+<meta property="og:url" content="{{ url_canonica }}" />
+<meta property="og:image" content="{{ og_image }}" />
+<meta property="og:site_name" content="{{ site_nome }}" />
+<meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+<header class="topo">
+  <img src="{{ logo }}" alt="" />
+  <a href="./">{{ site_nome }}</a>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>{{ site_nome }}</h1>
+    <p class="hero__tagline">{{ tagline }}</p>
+    <p class="hero__descricao">{{ descricao }}</p>
+  </div>
+
+  <ul class="cards">
+    {{ cartoes }}
+  </ul>
+  {{ vazio }}
+
+  {{ cta }}
+</main>
+
+<footer class="rodape">
+  <p class="rodape__bio"><strong>{{ autora }}</strong> — {{ autora_bio }}</p>
+  <p class="rodape__links">
+    <a href="{{ instagram }}" target="_blank" rel="noopener">Instagram</a>
+    <a href="{{ linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="{{ site_link }}" target="_blank" rel="noopener">Site</a>
+  </p>
+  <p>© {{ ano }} {{ site_nome }}</p>
+</footer>
+{{ analytics }}
+</body>
+</html>
