@@ -461,9 +461,21 @@ def main() -> int:
     if not edicoes:
         print("  nenhuma edição publicável encontrada em content/")
 
+    # Domínio próprio: ao configurar em Settings > Pages, o GitHub grava um
+    # arquivo docs/CNAME. Como o build recria docs/ do zero, sem resgatar esse
+    # arquivo antes o domínio cairia no primeiro build seguinte.
+    dominio = cfg.get("site", {}).get("dominio", "").strip()
+    cname = SAIDA / "CNAME"
+    if not dominio and cname.is_file():
+        dominio = cname.read_text(encoding="utf-8").strip()
+
     if SAIDA.exists():
         shutil.rmtree(SAIDA)
     SAIDA.mkdir(parents=True)
+
+    if dominio:
+        (SAIDA / "CNAME").write_text(dominio + "\n", encoding="utf-8")
+        print(f"  domínio próprio preservado: {dominio}")
 
     # GitHub Pages não serve pastas iniciadas por "_" sem isto.
     (SAIDA / ".nojekyll").write_text("", encoding="utf-8")

@@ -4,6 +4,8 @@
     "tagline": "Transição, posicionamento e LinkedIn sem achismo.",
     "descricao": "Conteúdo direto sobre transição de carreira, posicionamento profissional e LinkedIn, por quem mentora isso todo dia.",
     "url": "https://somostakai.github.io/karolayne",
+    "_comentario_dominio": "Domínio próprio, ex.: carta.somostakai.com.br. Se você configurar em Settings > Pages, o build detecta sozinho e preserva. Preencher aqui deixa registrado no repo.",
+    "dominio": "",
     "autora": "Karolayne",
     "autora_bio": "Mentora de carreira. Ajudo profissionais a se posicionarem com clareza e a fazerem transições que fazem sentido.",
     "logo": "assets/logo-takai.png",
