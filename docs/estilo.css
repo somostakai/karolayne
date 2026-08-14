@@ -63,11 +63,13 @@
   --card-1: #f6e3e0;
   --card-2: #e7ece2;
   --card-3: #f7e7db;
-  /* Títulos em Helvetica, a fonte da marca. Ela não precisa de arquivo nem de
-     licença de web: em Apple já vem instalada, e fora dela a Arial tem as
-     mesmas métricas, então substitui sem mexer no layout. */
-  --titulo: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
-  --corpo: "Avenir Next Arabic", "Avenir Next", Avenir, ui-sans-serif, system-ui, sans-serif;
+  /* Helvetica em tudo, título e corpo. Ela não precisa de arquivo hospedado
+     nem de licença de web: em Apple já vem instalada, e fora dela a Arial tem
+     as mesmas métricas, então substitui sem alterar o layout. O contraste da
+     página vem da Playfair nas citações, não de uma segunda fonte de texto. */
+  --helvetica: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --titulo: var(--helvetica);
+  --corpo: var(--helvetica);
   --citacao: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: var(--corpo);
   --serif: var(--corpo);
@@ -127,8 +129,9 @@ body {
   background: var(--surface);
   color: var(--ink);
   font-family: var(--corpo);
-  font-size: 1.07rem;
-  line-height: 1.72;
+  font-size: 1.08rem;
+  line-height: 1.78;
+  letter-spacing: -0.003em;
   -webkit-font-smoothing: antialiased;
 }
 
