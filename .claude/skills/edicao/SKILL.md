@@ -64,6 +64,20 @@ tentação aparecer, o certo é uma destas saídas:
 
 Para intervalo de números, escreva "de 4 a 7", não "4–7".
 
+**Escreva em linguagem neutra.** Quem lê pode ser de qualquer gênero, e o
+texto não pode presumir. Nada de "sozinha", "encontrada", "criadora",
+"preparada", "a leitora". Saídas que funcionam sem travar a frase:
+
+- fale direto com a pessoa em segunda pessoa, que em português já é neutra:
+  *você consegue*, *você vai perceber*
+- troque o adjetivo por substantivo ou verbo: ~~fica perdida~~ → *fica sem
+  contexto*; ~~ser encontrada~~ → *ser encontrado pelas oportunidades* só se
+  não houver saída melhor, e prefira *aparecer para as oportunidades*
+- use "quem": *quem faz bem o que faz*, *quem está em transição*
+- "pessoa", "profissional" e "gente" resolvem a maior parte dos casos
+
+Isso vale também para `config.json` e para os resumos, não só para o corpo.
+
 **Abertura.** Comece por uma observação concreta da prática de mentoria ("toda
 semana eu abro dezenas de perfis e vejo o mesmo padrão"), nunca por definição de
 dicionário nem por "no mundo atual do mercado de trabalho".
@@ -79,7 +93,7 @@ dicionário nem por "no mundo atual do mercado de trabalho".
 
 **Exemplos são obrigatórios.** Toda afirmação abstrata precisa de um exemplo
 concreto com cargo real. Use áreas variadas entre as edições (RH, financeiro,
-dados, marketing, operações) para a leitora se enxergar.
+dados, marketing, operações) para quem lê se enxergar.
 
 **Tamanho.** 4 a 7 minutos de leitura (de 800 a 1400 palavras). Menos que isso não
 prova competência; mais que isso não termina no celular.

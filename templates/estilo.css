@@ -303,31 +303,24 @@ article blockquote p { margin: 0; }
 .pagina-larga { --largura: 62rem; }
 
 .hero {
-  padding: 3rem 0 2.5rem;
-  display: grid; gap: 2rem;
+  padding: 3.2rem 0 2.6rem;
   border-bottom: 1px solid var(--border); margin-bottom: 2.5rem;
 }
-@media (min-width: 56rem) {
-  .hero { grid-template-columns: 1.15fr 0.85fr; align-items: end; gap: 3rem; }
-}
+/* O tamanho acompanha a largura para o título caber em uma linha sem
+   precisar de nowrap, que estouraria a tela em aparelho estreito. */
 .hero h1 {
-  font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 0.98;
-  letter-spacing: -0.04em; margin: 0 0 1rem;
+  font-size: clamp(1.95rem, 8.6vw, 4rem); line-height: 1.02;
+  letter-spacing: -0.035em; margin: 0 0 0.5rem;
 }
 .hero__tagline {
   font-family: var(--citacao); font-style: italic;
-  font-size: clamp(1.15rem, 2.4vw, 1.5rem); line-height: 1.4;
-  color: var(--ink-secondary); margin: 0;
+  font-size: clamp(1.05rem, 2.7vw, 1.5rem); line-height: 1.35;
+  color: var(--ink); margin: 0 0 1.1rem;
 }
-/* O painel dá ao topo o contraste de bloco que a capa precisava para não
-   ser só texto empilhado. */
-.hero__painel {
-  border: 1px solid var(--ink); border-radius: 18px;
-  padding: 1.6rem 1.5rem;
-  display: flex; flex-direction: column; gap: 1rem;
+.hero__descricao {
+  margin: 0; max-width: 40rem;
+  font-size: 1rem; line-height: 1.6; color: var(--ink-secondary);
 }
-.hero__painel img { width: 84px; height: auto; }
-.hero__descricao { margin: 0; font-size: 1rem; color: var(--ink-secondary); }
 
 /* ---------- grade de textos ---------- */
 

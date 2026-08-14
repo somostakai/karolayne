@@ -2,8 +2,8 @@
 
 A lógica da série é ir de fora para dentro: primeiro o que aparece sem ninguém
 clicar, depois o que convence quem clicou, depois a prova, e por fim a
-presença contínua. Cada parte resolve um problema inteiro sozinha. Quem cair
-de paraquedas na parte 3 pelo Instagram não fica perdida.
+presença contínua. Cada parte resolve um problema inteiro por si. Quem cair
+de paraquedas na parte 3 pelo Instagram não fica sem contexto.
 
 | # | Tema | Promessa do post no Instagram | Status |
 |---|------|-------------------------------|--------|
@@ -40,7 +40,7 @@ enterra a parte boa no clique que ninguém dá.
 - Estrutura em 4 blocos: gancho → o que te levou até aqui → o que você faz hoje
   → o convite para conversar
 - Primeira pessoa, sempre
-- O que cortar: adjetivo sobre si mesma ("profissional dedicada e proativa")
+- O que cortar: adjetivo sobre si ("profissional dedicado e proativo")
 - Exercício: escrever as 3 primeiras linhas cinco vezes e escolher a menos
   parecida com as outras quatro
 

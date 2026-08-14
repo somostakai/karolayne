@@ -466,7 +466,14 @@ def bloco_sobre(cfg: dict, prefixo: str) -> str:
     if not sobre.get("nome"):
         return ""
 
-    foto = sobre.get("foto", "")
+    # Só usa a foto se o arquivo existir de fato: assim o caminho pode ficar
+    # pré-configurado sem o risco de a capa exibir imagem quebrada enquanto
+    # ninguém subiu o arquivo.
+    foto = sobre.get("foto", "").strip()
+    if foto and not (RAIZ / foto).is_file():
+        _avisar(f"sobre.foto aponta para {foto}, que não existe. Usando o bloco vazio.")
+        foto = ""
+
     if foto:
         retrato = f'<img class="sobre__foto" src="{prefixo}{foto}" alt="{html.escape(sobre["nome"])}" />'
     else:

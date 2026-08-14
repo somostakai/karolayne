@@ -12,7 +12,7 @@
     "og_image": "assets/og-imagem.png",
     "_comentario_series": "Descrição de cada página de assunto. Sem isso, uma frase genérica é usada.",
     "descricao_series": {
-      "LinkedIn": "Como usar o LinkedIn para ser encontrada pelas oportunidades certas, sem virar criadora de conteúdo."
+      "LinkedIn": "Como usar o LinkedIn para ser encontrado pelas oportunidades certas, sem precisar virar criador de conteúdo."
     }
   },
   "cta": {
@@ -38,13 +38,12 @@
   },
   "analytics": "",
   "sobre": {
-    "_comentario": "Seção de apresentação na capa. Ponha uma foto em assets/ e aponte aqui; sem foto, aparece um bloco na cor da marca.",
+    "_comentario": "Suba a foto em assets/ com o nome abaixo e ela aparece sozinha. Enquanto o arquivo não existir, o build avisa e mostra um bloco na cor da marca.",
     "nome": "Karolayne Oliveira",
     "papel": "Mentora de carreira",
-    "foto": "",
+    "foto": "assets/foto-karolayne.jpg",
     "texto": [
-      "Eu ajudo profissionais a saírem do lugar onde estão travados: gente que está boa no que faz, mas que ninguém enxerga; gente que quer mudar de área e não sabe como contar essa história sem parecer que está começando do zero.",
-      "Escrevo aqui o que eu repito toda semana nas mentorias, do jeito mais prático que consigo. Se você aplicar sozinha, ótimo, é para isso que existe."
+      "Eu ajudo profissionais a saírem do lugar onde estão travados: quem faz bem o que faz, mas que ninguém enxerga; quem quer mudar de área e não sabe como contar essa história sem parecer que está começando do zero."
     ]
   }
 }
