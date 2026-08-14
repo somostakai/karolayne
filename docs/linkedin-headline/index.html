@@ -6,7 +6,7 @@
 <title>Seu LinkedIn não é um currículo · Carta de carreira</title>
 <meta name="description" content="A maior parte dos perfis descreve cargos. Os perfis que geram oportunidade descrevem problemas resolvidos. A diferença começa na primeira linha." />
 <link rel="canonical" href="https://somostakai.github.io/karolayne/linkedin-headline/" />
-<link rel="icon" href="../assets/logo-takai.png" />
+<link rel="icon" href="../assets/marca-takai.svg" />
 <link rel="stylesheet" href="../estilo.css" />
 
 <!-- Preview do link quando você manda no direct / WhatsApp -->
@@ -14,7 +14,7 @@
 <meta property="og:title" content="Seu LinkedIn não é um currículo" />
 <meta property="og:description" content="A maior parte dos perfis descreve cargos. Os perfis que geram oportunidade descrevem problemas resolvidos. A diferença começa na primeira linha." />
 <meta property="og:url" content="https://somostakai.github.io/karolayne/linkedin-headline/" />
-<meta property="og:image" content="https://somostakai.github.io/karolayne/assets/logo-takai.png" />
+<meta property="og:image" content="https://somostakai.github.io/karolayne/assets/og-imagem.png" />
 <meta property="og:site_name" content="Carta de carreira" />
 <meta name="twitter:card" content="summary_large_image" />
 </head>
@@ -22,7 +22,7 @@
 <div class="progresso" id="progresso"></div>
 
 <header class="topo">
-  <img src="../assets/logo-takai.png" alt="" />
+  <img src="../assets/marca-takai.svg" alt="" />
   <a href="../">Carta de carreira</a>
 </header>
 
@@ -99,14 +99,33 @@
   <p>© 2026 Carta de carreira</p>
 </footer>
 
+<button class="ao-topo" id="ao-topo" type="button" aria-label="Voltar ao topo do artigo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5" />
+    <path d="M5 12l7-7 7 7" />
+  </svg>
+</button>
+
 <script>
-  // Barra de progresso da leitura
   var barra = document.getElementById('progresso');
+  var aoTopo = document.getElementById('ao-topo');
+
   function atualizar() {
     var altura = document.documentElement.scrollHeight - window.innerHeight;
     var pct = altura > 0 ? (window.scrollY / altura) * 100 : 0;
     barra.style.width = Math.min(100, Math.max(0, pct)) + '%';
+
+    // Só aparece depois de uma tela cheia de rolagem: antes disso o topo
+    // ainda está perto e o botão só atrapalharia a leitura.
+    aoTopo.classList.toggle('visivel', window.scrollY > window.innerHeight);
   }
+
+  aoTopo.addEventListener('click', function () {
+    var suave = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: suave ? 'smooth' : 'auto' });
+  });
+
   window.addEventListener('scroll', atualizar, { passive: true });
   window.addEventListener('resize', atualizar);
   atualizar();

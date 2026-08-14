@@ -8,29 +8,24 @@
     "dominio": "",
     "autora": "Karolayne",
     "autora_bio": "Mentora de carreira. Ajudo profissionais a se posicionarem com clareza e a fazerem transições que fazem sentido.",
-    "logo": "assets/logo-takai.png",
-    "og_image": ""
+    "logo": "assets/marca-takai.svg",
+    "og_image": "assets/og-imagem.png"
   },
-
   "cta": {
     "titulo": "Quer fazer isso com acompanhamento?",
     "texto": "Se esse conteúdo te ajudou, imagina ele aplicado ao seu caso, com alguém olhando junto. É isso que eu faço na mentoria: a gente destrava seu posicionamento e monta um plano de carreira que cabe na sua vida real.",
     "botao": "Quero entender como funciona",
     "link": "https://forms.gle/8pibyQncfbJMLprP9",
     "nota": "É rápido de preencher e eu respondo pessoalmente.",
-
     "_comentario_origem": "entry.NNN de uma pergunta de RESPOSTA CURTA; recebe o slug da edição. Lista suspensa não aceita valor livre.",
     "parametro_origem": "",
-
     "_comentario_prefill": "Pares entry.NNN: valor fixo, para já responder perguntas de opção. O valor tem que ser idêntico à opção cadastrada.",
     "prefill": {}
   },
-
   "rodape": {
     "instagram": "https://www.instagram.com/karolayne.os/",
     "linkedin": "https://www.linkedin.com/in/karolayneoliveira/",
     "site": "https://linktr.ee/somostakai"
   },
-
   "analytics": ""
 }

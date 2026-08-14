@@ -346,6 +346,16 @@ def bloco_cta(cfg: dict, campanha: str) -> str:
 </section>"""
 
 
+def url_absoluta(caminho: str, base_url: str) -> str:
+    """Deixa o caminho absoluto: og:image relativo não é lido por WhatsApp,
+    Instagram nem LinkedIn, e o preview do link sai sem imagem."""
+    if not caminho:
+        return ""
+    if caminho.startswith(("http://", "https://")):
+        return caminho
+    return f"{base_url}/{caminho.lstrip('/')}" if base_url else caminho
+
+
 def bloco_rodape_links(cfg: dict) -> str:
     """Só entra no rodapé o que estiver preenchido no config."""
     rodape = cfg.get("rodape", {})
@@ -386,7 +396,7 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
     base_url = site.get("url", "").rstrip("/")
 
     descricao = edicao.resumo or site.get("descricao", "")
-    og_image = site.get("og_image") or (f"{base_url}/{site.get('logo', '')}" if base_url else "")
+    og_image = url_absoluta(site.get("og_image") or site.get("logo", ""), base_url)
 
     return preencher(template, {
         "titulo": html.escape(edicao.titulo),
@@ -440,7 +450,7 @@ def construir_indice(edicoes: list[Edicao], cfg: dict, template: str) -> str:
         "vazio": vazio,
         "cta": bloco_cta(cfg, "index"),
         "url_canonica": f"{base_url}/" if base_url else "",
-        "og_image": site.get("og_image") or (f"{base_url}/{site.get('logo', '')}" if base_url else ""),
+        "og_image": url_absoluta(site.get("og_image") or site.get("logo", ""), base_url),
         "rodape_links": bloco_rodape_links(cfg),
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),

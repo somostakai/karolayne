@@ -176,7 +176,7 @@ article blockquote p { margin: 0; }
 .cta {
   margin: 3.5rem 0 0; padding: 2rem 1.5rem;
   background: var(--surface-raised); border: 1px solid var(--border);
-  border-radius: 14px; box-shadow: var(--shadow);
+  border-radius: 14px; box-shadow: var(--shadow); text-align: center;
 }
 .cta__titulo { font-size: 1.4rem; line-height: 1.25; margin: 0 0 0.75rem; font-weight: 700; }
 .cta__texto { font-size: 1.02rem; color: var(--ink-secondary); margin: 0 0 1.5rem; }
@@ -234,4 +234,27 @@ article blockquote p { margin: 0; }
 @media (max-width: 480px) {
   body { font-size: 1.06rem; }
   .cta { padding: 1.6rem 1.15rem; }
+}
+
+
+/* ---------- voltar ao topo ---------- */
+
+.ao-topo {
+  position: fixed; right: 1.1rem; bottom: 1.1rem; z-index: 20;
+  display: flex; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem; padding: 0;
+  border: 1px solid var(--accent-borda); border-radius: 999px;
+  background: var(--btn-bg); color: var(--btn-ink);
+  cursor: pointer; box-shadow: var(--shadow);
+  /* escondido até a pessoa descer o suficiente para o botão fazer sentido */
+  opacity: 0; visibility: hidden; transform: translateY(0.5rem);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+}
+.ao-topo.visivel { opacity: 1; visibility: visible; transform: translateY(0); }
+.ao-topo:hover { opacity: 0.92; }
+.ao-topo:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ao-topo svg { width: 1.1rem; height: 1.1rem; display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ao-topo { transition: none; }
 }

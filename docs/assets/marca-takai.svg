@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 72" role="img" aria-label="takai">
+  <title>takai</title>
+  <defs>
+    <!-- O sol fica inteiro acima da encosta, e a própria encosta forma a
+         borda direita dele, com um respiro entre os dois. A máscara esconde
+         tudo que cai abaixo da curva (o path preenchido até a base) mais uma
+         faixa acima dela (o traço preto, mais grosso que o verde visível).
+         Feito por máscara, e não por fundo branco, para o vão ficar
+         transparente e funcionar em tema claro ou escuro. -->
+    <mask id="vao">
+      <rect width="200" height="72" fill="white" />
+      <path d="M0,69 C18,67 30,64.5 40,60 C55,53.5 66,40 78,27 C84,20 89,15.2 94,15.2 C99,15.2 103,20.5 107,26.5 C112,34 118,43.2 121.5,43.2 C125,43.2 127,37.4 130.5,37.4 C134,37.4 136.5,40 139,43 C150,53 172,63.5 200,68.8 L200,72 L0,72 Z"
+            fill="black" stroke="black" stroke-width="12"
+            stroke-linecap="round" stroke-linejoin="round" />
+    </mask>
+  </defs>
+
+  <!-- Sol: gota de topo redondo com a ponta para baixo -->
+  <path d="M27,28 A27,27 0 0 1 81,28
+           C81,44 68,54.5 51,59.5
+           C37,52.5 27,41 27,28 Z"
+        fill="#bf755b" mask="url(#vao)" />
+
+  <!-- Montanha -->
+  <path d="M0,69 C18,67 30,64.5 40,60 C55,53.5 66,40 78,27 C84,20 89,15.2 94,15.2 C99,15.2 103,20.5 107,26.5 C112,34 118,43.2 121.5,43.2 C125,43.2 127,37.4 130.5,37.4 C134,37.4 136.5,40 139,43 C150,53 172,63.5 200,68.8"
+        fill="none" stroke="#5f6b52" stroke-width="6.5"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg>
