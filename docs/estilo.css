@@ -63,10 +63,10 @@
   --card-1: #f6e3e0;
   --card-2: #e7ece2;
   --card-3: #f7e7db;
-  /* Títulos: a fonte da marca. Enquanto o arquivo dela não estiver em
-     assets/fontes, a pilha cai para a Avenir Next e depois para a do sistema.
-     Trocar é só mexer no primeiro nome desta linha. */
-  --titulo: "Elfica", "Avenir Next", Avenir, ui-sans-serif, system-ui, sans-serif;
+  /* Títulos em Helvetica, a fonte da marca. Ela não precisa de arquivo nem de
+     licença de web: em Apple já vem instalada, e fora dela a Arial tem as
+     mesmas métricas, então substitui sem mexer no layout. */
+  --titulo: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
   --corpo: "Avenir Next Arabic", "Avenir Next", Avenir, ui-sans-serif, system-ui, sans-serif;
   --citacao: "Playfair Display", Georgia, "Times New Roman", serif;
   --sans: var(--corpo);
