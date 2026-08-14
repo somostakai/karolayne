@@ -16,13 +16,18 @@
     "botao": "Quero conversar sobre a mentoria",
     "link": "https://forms.gle/8pibyQncfbJMLprP9",
     "nota": "É rápido de preencher e eu respondo pessoalmente.",
-    "parametro_origem": ""
+
+    "_comentario_origem": "entry.NNN de uma pergunta de RESPOSTA CURTA; recebe o slug da edição. Lista suspensa não aceita valor livre.",
+    "parametro_origem": "",
+
+    "_comentario_prefill": "Pares entry.NNN: valor fixo, para já responder perguntas de opção. O valor tem que ser idêntico à opção cadastrada.",
+    "prefill": {}
   },
 
   "rodape": {
-    "instagram": "",
-    "linkedin": "",
-    "site": "https://somostakai.com.br"
+    "instagram": "https://www.instagram.com/karolayne.os/",
+    "linkedin": "https://www.linkedin.com/in/karolayneoliveira/",
+    "site": "https://linktr.ee/somostakai"
   },
 
   "analytics": ""

@@ -117,21 +117,44 @@ funciona.** O `forms.gle` é um encurtador e descarta a query no redirect, e o
 Forms não reporta origem de tráfego. Sem tratamento, todas as respostas
 chegam iguais e você não sabe qual edição trouxe cada pessoa.
 
-O jeito que funciona é o formulário se autopreencher. Configuração, uma vez só:
+O jeito que funciona é o formulário se autopreencher pela URL.
 
-1. No formulário, crie uma pergunta de resposta curta: **"Como você chegou
-   até aqui?"** (pode deixar por último, e não obrigatória)
-2. Menu de três pontos → **Obter link pré-preenchido** → escreva qualquer
-   coisa nessa pergunta → **Obter link**
-3. O link copiado tem um trecho `entry.123456789=qualquercoisa`. Copie só o
-   `entry.123456789`
-4. Cole em `cta.parametro_origem` no `config.json`
+> **Atenção ao tipo da pergunta.** Lista suspensa e múltipla escolha só
+> aceitam preenchimento se o valor for **idêntico** a uma das opções
+> cadastradas — qualquer outro valor é descartado e o campo chega vazio. Para
+> receber o slug da edição a pergunta precisa ser de **resposta curta**.
+
+O arranjo que funciona usa duas perguntas, com papéis diferentes:
+
+| Pergunta | Tipo | Para quê |
+|---|---|---|
+| "Como você chegou até aqui?" | lista suspensa | o **canal** (Instagram, indicação, Google...) |
+| "Qual página você estava lendo?" | resposta curta | a **edição** exata |
+
+Configuração, uma vez só:
+
+1. Crie a segunda pergunta, de resposta curta. Pode chamar de "De onde veio
+   este link" e deixar não obrigatória — ela chega preenchida sozinha
+2. Três pontinhos → **Obter link pré-preenchido** → responda as duas
+   perguntas (na lista suspensa escolha o canal que representa o site) →
+   **Obter link**
+3. O link copiado tem dois trechos `entry.NNNNN=...`. Identifique qual é qual
+   pelos valores que você digitou
+4. No `config.json`: o da resposta curta vai em `cta.parametro_origem`; o da
+   lista suspensa vai em `cta.prefill`, com o valor da opção escrito
+   **idêntico** ao cadastrado, acento inclusive:
+
+```json
+"parametro_origem": "entry.222222222",
+"prefill": { "entry.111111111": "Newsletter" }
+```
+
 5. Troque `cta.link` pela **URL longa** do formulário
    (`docs.google.com/forms/d/e/.../viewform`) — o `forms.gle` curto descarta
    o preenchimento
 
-Feito isso, cada edição passa a mandar o próprio slug na resposta, e a aba de
-respostas mostra em qual texto a pessoa estava quando decidiu te procurar.
+Feito isso, cada edição manda o próprio slug, e a lista suspensa já chega
+respondida — uma pergunta obrigatória a menos entre a pessoa e o envio.
 
 Enquanto `parametro_origem` estiver vazio, o build avisa e deixa o link
 intacto — nada quebra, você só fica sem a atribuição.

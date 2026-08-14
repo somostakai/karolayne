@@ -290,10 +290,16 @@ def link_cta(link: str, campanha: str, cta: dict) -> str:
     """Marca o link do CTA com a edição de origem.
 
     Google Forms ignora UTM: o `forms.gle` é encurtador e descarta a query
-    no redirect, e o Forms não reporta origem de tráfego. Para esse caso o
-    caminho é preencher um campo do próprio formulário — configure
-    `cta.parametro_origem` com o `entry.NNNNN` da pergunta "como você chegou
-    até aqui" e cada edição chega com a resposta já preenchida.
+    no redirect, e o Forms não reporta origem de tráfego. O que funciona é
+    preencher campos do próprio formulário pela URL:
+
+    - `cta.parametro_origem`: o `entry.NNNNN` de uma pergunta de **resposta
+      curta**, que recebe o slug da edição. Precisa ser resposta curta —
+      lista suspensa e múltipla escolha só aceitam valor idêntico a uma das
+      opções cadastradas, e descartam qualquer outro.
+    - `cta.prefill`: pares `entry.NNNNN: valor` fixos, para já deixar
+      respondidas perguntas de opção (ex.: o canal "Newsletter"). O valor
+      tem que ser idêntico à opção no formulário, acento inclusive.
     """
     if not link or link.startswith(("#", "mailto:", "tel:")):
         return link
@@ -302,15 +308,18 @@ def link_cta(link: str, campanha: str, cta: dict) -> str:
     query = dict(parse_qsl(partes.query, keep_blank_values=True))
     eh_forms = "forms.gle" in partes.netloc or "/forms/" in partes.path
     parametro = cta.get("parametro_origem", "").strip()
+    fixos = {k: v for k, v in (cta.get("prefill") or {}).items() if k and v}
 
-    if parametro:
+    if parametro or fixos:
         if "forms.gle" in partes.netloc:
             _avisar(
                 "cta.link é um forms.gle (encurtador) e descarta o prefill. "
                 "Troque pela URL longa do formulário (docs.google.com/forms/...)."
             )
         query["usp"] = "pp_url"
-        query[parametro] = campanha
+        query.update(fixos)
+        if parametro:
+            query[parametro] = campanha
     elif eh_forms:
         _avisar(
             "CTA aponta para o Google Forms sem cta.parametro_origem: as "
@@ -342,7 +351,7 @@ def bloco_cta(cfg: dict, campanha: str) -> str:
 def bloco_rodape_links(cfg: dict) -> str:
     """Só entra no rodapé o que estiver preenchido no config."""
     rodape = cfg.get("rodape", {})
-    rotulos = {"instagram": "Instagram", "linkedin": "LinkedIn", "site": "Site"}
+    rotulos = {"instagram": "Instagram", "linkedin": "LinkedIn", "site": "takai"}
 
     itens = [
         f'<a href="{url}" target="_blank" rel="noopener">{rotulo}</a>'
