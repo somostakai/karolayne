@@ -65,7 +65,19 @@ git add -A && git commit -m "Nova edição: ..." && git push
 Sem dependências: só Python 3.8+ da própria máquina. O GitHub Pages atualiza
 em 1–2 minutos.
 
-Para conferir antes de subir, abra `docs/index.html` no navegador.
+### Conferir antes de subir
+
+Abra `docs/index.html` no navegador. Se quiser ver no celular ou mandar para
+alguém opinar, gere as versões autocontidas:
+
+```bash
+python3 scripts/previa.py
+```
+
+Isso grava em `previa/` uma cópia de cada página com CSS e imagens embutidos
+no próprio arquivo. Cada uma abre sozinha em qualquer lugar — é o jeito de
+ver o site de verdade antes de existir uma URL. A pasta `previa/` não vai
+para o repositório.
 
 ## Configuração inicial
 
@@ -112,10 +124,18 @@ assunto específico; fazer ela procurar perde leitura.
 
 ## Como saber qual edição converteu
 
-O CTA aponta para um Google Formulário, e aí tem uma pegadinha: **UTM não
-funciona.** O `forms.gle` é um encurtador e descarta a query no redirect, e o
-Forms não reporta origem de tráfego. Sem tratamento, todas as respostas
-chegam iguais e você não sabe qual edição trouxe cada pessoa.
+Hoje a origem vem da própria pergunta do formulário ("Como você chegou até
+aqui?"), respondida pela pessoa. O link do CTA vai limpo e é isso que está
+configurado — **não precisa fazer nada.**
+
+O resto desta seção é opcional: só interessa no dia em que você quiser saber
+**qual edição** trouxe cada pessoa, e não só por qual canal ela veio.
+
+<details>
+<summary>Como identificar a edição, se um dia fizer falta</summary>
+
+UTM não resolve: o `forms.gle` é um encurtador e descarta a query no
+redirect, e o Forms não reporta origem de tráfego.
 
 O jeito que funciona é o formulário se autopreencher pela URL.
 
@@ -156,8 +176,7 @@ Configuração, uma vez só:
 Feito isso, cada edição manda o próprio slug, e a lista suspensa já chega
 respondida — uma pergunta obrigatória a menos entre a pessoa e o envio.
 
-Enquanto `parametro_origem` estiver vazio, o build avisa e deixa o link
-intacto — nada quebra, você só fica sem a atribuição.
+</details>
 
 > Se um dia o CTA apontar para WhatsApp ou Calendly em vez do Forms, o build
 > volta a anexar UTMs sozinho (`utm_campaign=<slug-da-edição>`). Não precisa

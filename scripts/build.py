@@ -321,10 +321,8 @@ def link_cta(link: str, campanha: str, cta: dict) -> str:
         if parametro:
             query[parametro] = campanha
     elif eh_forms:
-        _avisar(
-            "CTA aponta para o Google Forms sem cta.parametro_origem: as "
-            "edições não vão ser distinguíveis nas respostas. Veja o README."
-        )
+        # Sem parâmetro configurado o link vai limpo: o formulário já pergunta
+        # o canal de origem, e a atribuição por edição é opcional (ver README).
         return link
     else:
         query.setdefault("utm_source", "carta-de-carreira")
