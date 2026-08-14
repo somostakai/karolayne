@@ -8,7 +8,7 @@ arquivo gerado abre sozinho, em qualquer lugar.
 
     python3 scripts/build.py && python3 scripts/previa.py
 
-Grava em previa/. É só para conferência — o que vai para o ar é docs/.
+Grava em previa/. É só para conferência. O que vai para o ar é docs/.
 """
 
 from __future__ import annotations

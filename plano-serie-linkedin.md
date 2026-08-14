@@ -1,8 +1,8 @@
-# Série LinkedIn — 4 edições
+# Série LinkedIn, 4 edições
 
 A lógica da série é ir de fora para dentro: primeiro o que aparece sem ninguém
 clicar, depois o que convence quem clicou, depois a prova, e por fim a
-presença contínua. Cada parte resolve um problema inteiro sozinha — quem cair
+presença contínua. Cada parte resolve um problema inteiro sozinha. Quem cair
 de paraquedas na parte 3 pelo Instagram não fica perdida.
 
 | # | Tema | Promessa do post no Instagram | Status |
@@ -14,7 +14,7 @@ de paraquedas na parte 3 pelo Instagram não fica perdida.
 
 ---
 
-## Parte 1 — Seu LinkedIn não é um currículo ✅
+## Parte 1. Seu LinkedIn não é um currículo ✅
 
 **Ângulo:** currículo responde "o que essa pessoa fez"; LinkedIn responde "por
 que eu deveria falar com ela". O headline é o pedaço mais visto e o mais
@@ -26,7 +26,7 @@ tem o que faz".
 
 ---
 
-## Parte 2 — A seção Sobre
+## Parte 2. A seção Sobre
 
 **Ângulo:** o "Sobre" não é uma biografia, é uma resposta à pergunta "por que
 você faz o que faz". A maior parte está em terceira pessoa, escrita como
@@ -48,11 +48,11 @@ enterra a parte boa no clique que ninguém dá.
 
 ---
 
-## Parte 3 — Experiências que provam, não que listam
+## Parte 3. Experiências que provam, não que listam
 
 **Ângulo:** a maioria copia a descrição da vaga para dentro do perfil. Isso
 descreve o **cargo**, não a **pessoa**. Duas pessoas no mesmo cargo têm o
-mesmo texto — e aí nada diferencia.
+mesmo texto, e aí nada diferencia.
 
 **A tese que diferencia:** ninguém contrata tarefa, contrata mudança. A frase
 precisa responder "o que estava ruim, o que você fez, como ficou depois".
@@ -62,7 +62,7 @@ precisa responder "o que estava ruim, o que você fez, como ficou depois".
 - O que fazer quando **não** existe número: escala, frequência, complexidade
   ("time de 12 pessoas", "todo fechamento mensal", "3 sistemas legados")
 - Antes/depois em áreas variadas
-- Quantas experiências detalhar (as 2–3 mais recentes; o resto é linha só)
+- Quantas experiências detalhar (as 2 a 3 mais recentes; o resto é linha só)
 - Exercício: pegar uma bala do perfil atual e reescrever com a fórmula
 
 **Ponte para a 4:** "perfil pronto é o mínimo. Ele só funciona se alguém
@@ -70,10 +70,10 @@ chegar até ele."
 
 ---
 
-## Parte 4 — Aparecer sem virar influencer
+## Parte 4. Aparecer sem virar influencer
 
 **Ângulo:** o medo real não é de postar, é de se expor e de "não ter nada
-relevante para dizer". E a maior parte da oportunidade não vem de post —
+relevante para dizer". E a maior parte da oportunidade não vem de post,
 vem de comentário, que ninguém trata como estratégia.
 
 **A tese que diferencia:** comentar bem em 5 posts por semana rende mais
@@ -89,7 +89,7 @@ aparece para a rede de quem postou, ou seja, para pessoas que você não alcanç
 - O que fazer quando ninguém curte nas primeiras semanas
 - Exercício: escolher 10 perfis da área para acompanhar e comentar
 
-**Fecha a série** retomando as 4 partes e amarrando no CTA da mentoria — é a
+**Fecha a série** retomando as 4 partes e amarrando no CTA da mentoria. É a
 edição com maior intenção de conversão das quatro.
 
 ---
@@ -101,5 +101,5 @@ aplicar a parte anterior antes da próxima, e o post do Instagram de cada
 semana pode retomar a parte anterior ("semana passada a gente arrumou o
 headline; hoje...").
 
-As 4 idealmente já escritas antes de publicar a primeira — assim a série não
+As 4 idealmente já escritas antes de publicar a primeira, assim a série não
 trava se a semana virar um caos.

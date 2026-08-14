@@ -27,7 +27,7 @@ Quando você escreve um no lugar do outro, o resultado é um perfil tecnicamente
 
 ## A primeira linha decide o resto
 
-O headline — aquela linha embaixo do seu nome — é o pedaço mais valioso do seu perfil e o mais desperdiçado.
+O headline, aquela linha embaixo do seu nome, é o pedaço mais valioso do seu perfil e o mais desperdiçado.
 
 Ele aparece em todo lugar: na busca, nos comentários que você deixa, nas sugestões de conexão, na notificação que a pessoa recebe. Muita gente vai ler o seu headline e **nunca** abrir o seu perfil. Ele não é uma introdução ao perfil. Na maior parte das vezes, ele é o perfil.
 
@@ -72,7 +72,7 @@ Mais alguns exemplos:
 ::: destaque
 **E se eu estiver em transição e ainda não tiver "o que faço"?**
 
-Aí o headline aponta para onde você vai, não para onde você estava — mas ancorado no que você já sabe fazer. Algo como: *Em transição para Produto | 8 anos de atendimento ao cliente que viraram obsessão por entender usuário*.
+Aí o headline aponta para onde você vai, não para onde você estava, mas sempre ancorado no que você já sabe fazer. Algo como: *Em transição para Produto | 8 anos de atendimento ao cliente que viraram obsessão por entender usuário*.
 
 Você não está mentindo sobre o presente nem escondendo o passado. Está mostrando a linha que liga os dois. Transição não é apagar a história: é dar sentido a ela.
 :::
@@ -83,7 +83,7 @@ Você não está mentindo sobre o presente nem escondendo o passado. Está mostr
 
 **"Tenho medo de me limitar."** Um headline genérico não te abre mais portas, ele te torna invisível para todas. Especificidade não fecha oportunidade, ela faz a oportunidade certa te encontrar. Quem é para todo mundo não é lembrado por ninguém.
 
-**"Minha empresa não deixa."** Muitas empresas pedem o cargo formal no headline. Ok — use o cargo formal e acrescente depois da barra. O campo tem 220 caracteres, o cargo ocupa 30.
+**"Minha empresa não deixa."** Muitas empresas pedem o cargo formal no headline. Ok, use o cargo formal e acrescente depois da barra. O campo tem 220 caracteres, o cargo ocupa 30.
 
 ## Faz agora, leva cinco minutos
 
@@ -98,11 +98,11 @@ Responda estas três perguntas em uma frase curta cada, sem se preocupar com bon
 
 Agora junte: *[cargo] | [verbo] [quem] a [resultado]*.
 
-Não precisa ficar perfeito na primeira tentativa. Precisa ficar **específico**. Você pode ajustar quantas vezes quiser — e vai ajustar mesmo.
+Não precisa ficar perfeito na primeira tentativa. Precisa ficar **específico**. Você pode ajustar quantas vezes quiser, e vai ajustar mesmo.
 :::
 
 Escreva o seu, cole no lugar do que está lá hoje, e repare no que acontece nas próximas duas semanas. Não é raro a mudança aparecer antes disso.
 
 ---
 
-Na próxima parte da série, a gente vai para a seção **Sobre** — o campo que quase todo mundo deixa vazio ou preenche com um parágrafo em terceira pessoa que ninguém lê até o fim. É onde a sua história para de ser uma lista de empregos e vira um motivo para falarem com você.
+Na próxima parte da série, a gente vai para a seção **Sobre**, o campo que quase todo mundo deixa vazio ou preenche com um parágrafo em terceira pessoa que ninguém lê até o fim. É onde a sua história para de ser uma lista de empregos e vira um motivo para falarem com você.

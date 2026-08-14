@@ -1,4 +1,4 @@
-# Carta de Carreira
+# Carta de carreira
 
 Site estático de conteúdo sobre carreira, transição e LinkedIn. Cada edição
 vira uma página com link próprio, feita para ser mandada no direct.
@@ -15,7 +15,7 @@ clica e lê. É de propósito: menos atrito, mais leitura.
 
 ## Por que site próprio e não Substack
 
-Substack, beehiiv e Kit existem para gerenciar **lista de e-mail** — captura,
+Substack, beehiiv e Kit existem para gerenciar **lista de e-mail**: captura,
 disparo, métrica de abertura. Como o e-mail não entra neste fluxo, essas
 ferramentas só acrescentariam limitação de layout e um domínio que não é seu.
 
@@ -63,7 +63,7 @@ git add -A && git commit -m "Nova edição: ..." && git push
 ```
 
 Sem dependências: só Python 3.8+ da própria máquina. O GitHub Pages atualiza
-em 1–2 minutos.
+em 1 a 2 minutos.
 
 ### Conferir antes de subir
 
@@ -75,7 +75,7 @@ python3 scripts/previa.py
 ```
 
 Isso grava em `previa/` uma cópia de cada página com CSS e imagens embutidos
-no próprio arquivo. Cada uma abre sozinha em qualquer lugar — é o jeito de
+no próprio arquivo. Cada uma abre sozinha em qualquer lugar. É o jeito de
 ver o site de verdade antes de existir uma URL. A pasta `previa/` não vai
 para o repositório.
 
@@ -103,7 +103,7 @@ Em um minuto o site está em `https://<usuário>.github.io/<repo>/`. Cole essa
 URL em `site.url` no `config.json`, rode o build de novo e publique.
 
 > O GitHub Pages é gratuito em repositórios **públicos**. Como o conteúdo vai
-> ser público de qualquer forma, isso não é problema — só não guarde nada
+> ser público de qualquer forma, isso não é problema, só não guarde nada
 > privado aqui.
 
 ### 3. Domínio próprio (opcional, recomendado)
@@ -126,7 +126,7 @@ assunto específico; fazer ela procurar perde leitura.
 
 Hoje a origem vem da própria pergunta do formulário ("Como você chegou até
 aqui?"), respondida pela pessoa. O link do CTA vai limpo e é isso que está
-configurado — **não precisa fazer nada.**
+configurado. **Não precisa fazer nada.**
 
 O resto desta seção é opcional: só interessa no dia em que você quiser saber
 **qual edição** trouxe cada pessoa, e não só por qual canal ela veio.
@@ -141,7 +141,7 @@ O jeito que funciona é o formulário se autopreencher pela URL.
 
 > **Atenção ao tipo da pergunta.** Lista suspensa e múltipla escolha só
 > aceitam preenchimento se o valor for **idêntico** a uma das opções
-> cadastradas — qualquer outro valor é descartado e o campo chega vazio. Para
+> cadastradas. Qualquer outro valor é descartado e o campo chega vazio. Para
 > receber o slug da edição a pergunta precisa ser de **resposta curta**.
 
 O arranjo que funciona usa duas perguntas, com papéis diferentes:
@@ -154,7 +154,7 @@ O arranjo que funciona usa duas perguntas, com papéis diferentes:
 Configuração, uma vez só:
 
 1. Crie a segunda pergunta, de resposta curta. Pode chamar de "De onde veio
-   este link" e deixar não obrigatória — ela chega preenchida sozinha
+   este link" e deixar não obrigatória, ela chega preenchida sozinha
 2. Três pontinhos → **Obter link pré-preenchido** → responda as duas
    perguntas (na lista suspensa escolha o canal que representa o site) →
    **Obter link**
@@ -170,11 +170,11 @@ Configuração, uma vez só:
 ```
 
 5. Troque `cta.link` pela **URL longa** do formulário
-   (`docs.google.com/forms/d/e/.../viewform`) — o `forms.gle` curto descarta
+   (`docs.google.com/forms/d/e/.../viewform`), porque o `forms.gle` curto descarta
    o preenchimento
 
 Feito isso, cada edição manda o próprio slug, e a lista suspensa já chega
-respondida — uma pergunta obrigatória a menos entre a pessoa e o envio.
+respondida, uma pergunta obrigatória a menos entre a pessoa e o envio.
 
 </details>
 
@@ -189,16 +189,16 @@ e não precisam de aviso de cookie).
 ## Estrutura
 
 ```
-config.json                 # marca, CTA e links — mexa aqui primeiro
+config.json                 # marca, CTA e links, mexa aqui primeiro
 content/*.md                # as edições, uma por arquivo
 templates/estilo.css        # todo o visual do site
 templates/edicao.html       # template de uma edição
 templates/index.html        # template do índice
 scripts/build.py            # gera docs/ (sem dependências externas)
 assets/                     # logo e imagens
-docs/                       # site gerado — é o que o Pages publica
+docs/                       # site gerado, é o que o Pages publica
 plano-serie-linkedin.md     # roteiro das 4 edições de LinkedIn
 ```
 
-`docs/` é regerado do zero a cada build. Não edite nada lá dentro — a mudança
+`docs/` é regerado do zero a cada build. Não edite nada lá dentro, porque a mudança
 some no próximo `build.py`.

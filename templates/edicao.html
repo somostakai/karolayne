@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{{ titulo }} — {{ site_nome }}</title>
+<title>{{ titulo }} · {{ site_nome }}</title>
 <meta name="description" content="{{ descricao }}" />
 <link rel="canonical" href="{{ url_canonica }}" />
 <link rel="icon" href="{{ logo }}" />
@@ -44,7 +44,7 @@
 </main>
 
 <footer class="rodape">
-  <p class="rodape__bio"><strong>{{ autora }}</strong> — {{ autora_bio }}</p>
+  <p class="rodape__bio"><strong>{{ autora }}</strong><br />{{ autora_bio }}</p>
   {{ rodape_links }}
   <p>© {{ ano }} {{ site_nome }}</p>
 </footer>

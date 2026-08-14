@@ -1,7 +1,7 @@
 {
   "site": {
-    "nome": "Carta de Carreira",
-    "tagline": "Transição, posicionamento e LinkedIn — sem achismo.",
+    "nome": "Carta de carreira",
+    "tagline": "Transição, posicionamento e LinkedIn sem achismo.",
     "descricao": "Conteúdo direto sobre transição de carreira, posicionamento profissional e LinkedIn, por quem mentora isso todo dia.",
     "url": "https://somostakai.github.io/karolayne",
     "autora": "Karolayne",
@@ -13,7 +13,7 @@
   "cta": {
     "titulo": "Quer fazer isso com acompanhamento?",
     "texto": "Se esse conteúdo te ajudou, imagina ele aplicado ao seu caso, com alguém olhando junto. É isso que eu faço na mentoria: a gente destrava seu posicionamento e monta um plano de carreira que cabe na sua vida real.",
-    "botao": "Quero conversar sobre a mentoria",
+    "botao": "Quero entender como funciona",
     "link": "https://forms.gle/8pibyQncfbJMLprP9",
     "nota": "É rápido de preencher e eu respondo pessoalmente.",
 

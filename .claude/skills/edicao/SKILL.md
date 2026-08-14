@@ -1,9 +1,9 @@
 ---
 name: edicao
-description: Escreve, revisa ou publica uma edição da Carta de Carreira. Use quando a Karol pedir para escrever uma nova edição, continuar uma série (LinkedIn, transição, posicionamento), revisar um rascunho existente em content/, ou publicar o site. Também use para pedidos como "escreve a parte 2", "nova carta sobre X", "publica o site".
+description: Escreve, revisa ou publica uma edição da Carta de carreira. Use quando a Karol pedir para escrever uma nova edição, continuar uma série (LinkedIn, transição, posicionamento), revisar um rascunho existente em content/, ou publicar o site. Também use para pedidos como "escreve a parte 2", "nova carta sobre X", "publica o site".
 ---
 
-# Escrever uma edição da Carta de Carreira
+# Escrever uma edição da Carta de carreira
 
 Este repositório publica páginas de conteúdo sobre carreira. O fluxo real é:
 post no Instagram → a pessoa comenta → o ManyChat manda o link → ela lê a página
@@ -15,7 +15,7 @@ promessa rápido e provar competência sem vender no meio do texto.
 
 ## Antes de escrever
 
-1. Leia `content/` para ver as edições já publicadas — tom, tamanho, estrutura.
+1. Leia `content/` para ver as edições já publicadas: tom, tamanho, estrutura.
 2. Leia `plano-serie-linkedin.md` se o pedido for de uma série em andamento.
 3. Se for continuação, confirme qual `numero` da série está livre.
 
@@ -41,7 +41,7 @@ rascunho: sim
 
 Campos:
 
-- `serie` e `numero` são opcionais — só use em conteúdo sequencial. Eles geram
+- `serie` e `numero` são opcionais, use só em conteúdo sequencial. Eles geram
   a etiqueta ("LINKEDIN · PARTE 1") e o bloco "outras partes da série".
 - `resumo` é o texto que aparece **no preview do link no Instagram**. É o que
   decide se a pessoa clica. Trate como copy, não como resumo burocrático.
@@ -51,7 +51,18 @@ Campos:
 
 **Tom.** Direta, sem rodeio, sem jargão de LinkedIn ("sinergia", "mindset
 vencedor", "fora da caixa"). Segunda pessoa ("você"), presente. Frases curtas.
-Pode discordar do senso comum — isso é o que diferencia de conteúdo genérico.
+Pode discordar do senso comum, que é o que diferencia de conteúdo genérico.
+
+**Nunca use travessão.** Nada de `—` nem `–`, em nenhum lugar: título,
+subtítulo, resumo, corpo, config. A Karol não gosta e é regra firme. Onde a
+tentação aparecer, o certo é uma destas saídas:
+
+- vírgula, quando é aposto: *o headline, aquela linha embaixo do seu nome, é...*
+- dois-pontos, quando o que vem depois explica ou lista o que veio antes
+- ponto final, quando na verdade são duas frases
+- parênteses, quando é mesmo um aparte dispensável
+
+Para intervalo de números, escreva "de 4 a 7", não "4–7".
 
 **Abertura.** Comece por uma observação concreta da prática de mentoria ("toda
 semana eu abro dezenas de perfis e vejo o mesmo padrão"), nunca por definição de
@@ -60,7 +71,7 @@ dicionário nem por "no mundo atual do mercado de trabalho".
 **Estrutura que funciona:**
 
 1. O padrão/erro que a pessoa provavelmente está cometendo
-2. Por que ele acontece — a lógica por trás, não só o "não faça isso"
+2. Por que ele acontece, a lógica por trás, não só o "não faça isso"
 3. O que fazer no lugar, com exemplo antes → depois de verdade
 4. As objeções ("mas eu faço muita coisa", "tenho medo de me limitar")
 5. Um exercício que dá para fazer em 5 minutos
@@ -70,7 +81,7 @@ dicionário nem por "no mundo atual do mercado de trabalho".
 concreto com cargo real. Use áreas variadas entre as edições (RH, financeiro,
 dados, marketing, operações) para a leitora se enxergar.
 
-**Tamanho.** 4 a 7 minutos de leitura (800–1400 palavras). Menos que isso não
+**Tamanho.** 4 a 7 minutos de leitura (de 800 a 1400 palavras). Menos que isso não
 prova competência; mais que isso não termina no celular.
 
 **Não venda no meio do texto.** O CTA final é injetado automaticamente pelo
@@ -82,7 +93,7 @@ vende sozinho ao ser bom.
 
 O build usa um renderizador próprio, com um subconjunto de markdown:
 
-- `##` e `###` para seções (o `#` já é o título do frontmatter — não use)
+- `##` e `###` para seções (o `#` já é o título do frontmatter, não use)
 - `**negrito**`, `*itálico*`, `~~riscado~~`, `` `código` ``
 - listas com `-` ou `1.`
 - `> citação` para destacar um exemplo ruim/bom isolado
@@ -113,8 +124,8 @@ Confira `docs/` e então:
 git add -A && git commit -m "Nova edição: <título>" && git push
 ```
 
-O site atualiza sozinho pelo GitHub Pages em 1–2 minutos.
+O site atualiza sozinho pelo GitHub Pages em 1 a 2 minutos.
 
 Depois de publicar, ofereça à Karol as **legendas do post do Instagram** que
-vão levar até essa edição — o texto do post e a resposta automática do
+vão levar até essa edição: o texto do post e a resposta automática do
 ManyChat. Uma edição publicada sem o post que leva até ela não serve para nada.

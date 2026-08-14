@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera o site estático da Carta de Carreira a partir dos markdowns em content/.
+"""Gera o site estático da Carta de carreira a partir dos markdowns em content/.
 
 Sem dependências externas: só a biblioteca padrão do Python 3.8+.
 
@@ -269,7 +269,7 @@ def carregar_edicoes() -> list[Edicao]:
 # --------------------------------------------------------------------------
 
 def preencher(template: str, valores: dict[str, str]) -> str:
-    """Substituição simples de {{ chave }} — sem motor de template externo."""
+    """Substituição simples de {{ chave }}, sem motor de template externo."""
     def trocar(m: re.Match) -> str:
         return str(valores.get(m.group(1).strip(), ""))
 
@@ -294,7 +294,7 @@ def link_cta(link: str, campanha: str, cta: dict) -> str:
     preencher campos do próprio formulário pela URL:
 
     - `cta.parametro_origem`: o `entry.NNNNN` de uma pergunta de **resposta
-      curta**, que recebe o slug da edição. Precisa ser resposta curta —
+      curta**, que recebe o slug da edição. Precisa ser resposta curta,
       lista suspensa e múltipla escolha só aceitam valor idêntico a uma das
       opções cadastradas, e descartam qualquer outro.
     - `cta.prefill`: pares `entry.NNNNN: valor` fixos, para já deixar
@@ -360,7 +360,7 @@ def bloco_rodape_links(cfg: dict) -> str:
 
 
 def bloco_relacionadas(atual: Edicao, todas: list[Edicao]) -> str:
-    """Outras edições da mesma série — mantém a pessoa lendo."""
+    """Outras edições da mesma série, para manter a pessoa lendo."""
     if not atual.serie:
         return ""
 
