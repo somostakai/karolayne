@@ -36,5 +36,15 @@
     "linkedin": "https://www.linkedin.com/in/karolayneoliveira/",
     "site": "https://linktr.ee/somostakai"
   },
-  "analytics": ""
+  "analytics": "",
+  "sobre": {
+    "_comentario": "Seção de apresentação na capa. Ponha uma foto em assets/ e aponte aqui; sem foto, aparece um bloco na cor da marca.",
+    "nome": "Karolayne Oliveira",
+    "papel": "Mentora de carreira",
+    "foto": "",
+    "texto": [
+      "Eu ajudo profissionais a saírem do lugar onde estão travados: gente que está boa no que faz, mas que ninguém enxerga; gente que quer mudar de área e não sabe como contar essa história sem parecer que está começando do zero.",
+      "Escrevo aqui o que eu repito toda semana nas mentorias, do jeito mais prático que consigo. Se você aplicar sozinha, ótimo, é para isso que existe."
+    ]
+  }
 }

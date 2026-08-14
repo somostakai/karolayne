@@ -414,7 +414,7 @@ def bloco_menu(series: dict, prefixo: str, atual: str = "") -> str:
     e vai crescendo sozinho conforme novos assuntos aparecem no content/."""
     itens = []
     marca = ' aria-current="page"' if atual == "inicio" else ""
-    itens.append(f'<a href="{prefixo}"{marca}>Todos os textos</a>')
+    itens.append(f'<a href="{prefixo}"{marca}>Início</a>')
 
     for nome in series:
         slug = slugificar(nome)
@@ -440,17 +440,52 @@ def bloco_cta_topo(edicao: Edicao, cfg: dict) -> str:
 
 def cartoes_html(edicoes: list[Edicao], prefixo: str) -> str:
     cartoes = []
-    for e in edicoes:
-        etiqueta = f'<span class="card__etiqueta">{html.escape(e.etiqueta)}</span>' if e.etiqueta else ""
-        cartoes.append(f"""<li class="card">
+    for i, e in enumerate(edicoes):
+        # Os fundos se alternam entre três tons da marca, para a grade ter
+        # ritmo sem sair da paleta.
+        tom = i % 3 + 1
+        rotulo = e.serie or "Carreira"
+        cartoes.append(f"""<li class="card card--{tom}">
   <a class="card__link" href="{prefixo}{e.url}">
-    {etiqueta}
-    <h2 class="card__titulo">{html.escape(e.titulo)}</h2>
+    <span class="card__etiqueta">{html.escape(rotulo)}</span>
+    <h3 class="card__titulo">{html.escape(e.titulo)}</h3>
     <p class="card__resumo">{html.escape(e.resumo or e.subtitulo)}</p>
-    <p class="card__meta">{e.data_legivel} · {e.minutos} min de leitura</p>
+    <span class="card__rodape">
+      <span class="card__tempo">{e.minutos} min de leitura</span>
+      <span class="card__ler">Ler<span class="card__seta" aria-hidden="true">&rarr;</span></span>
+    </span>
   </a>
 </li>""")
     return "\n".join(cartoes)
+
+
+def bloco_sobre(cfg: dict, prefixo: str) -> str:
+    """Apresentação da autora na capa. Quem chega por um link de direct não faz
+    ideia de quem escreveu, e sem isso o conteúdo não vira confiança."""
+    sobre = cfg.get("sobre", {})
+    if not sobre.get("nome"):
+        return ""
+
+    foto = sobre.get("foto", "")
+    if foto:
+        retrato = f'<img class="sobre__foto" src="{prefixo}{foto}" alt="{html.escape(sobre["nome"])}" />'
+    else:
+        retrato = '<div class="sobre__foto sobre__foto--vazia" aria-hidden="true"></div>'
+
+    paragrafos = "".join(
+        f"<p>{html.escape(t)}</p>" for t in sobre.get("texto", []) if t.strip()
+    )
+    rodape = bloco_rodape_links(cfg).replace('class="rodape__links"', 'class="sobre__redes"')
+
+    return f"""<section class="sobre">
+  {retrato}
+  <div class="sobre__texto">
+    <h2 class="sobre__nome">{html.escape(sobre["nome"])}</h2>
+    <p class="sobre__papel">{html.escape(sobre.get("papel", ""))}</p>
+    {paragrafos}
+    {rodape}
+  </div>
+</section>"""
 
 
 def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: str) -> str:
@@ -488,7 +523,7 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
 
 def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
                     descricao: str, conteudo: str, menu: str, prefixo: str,
-                    caminho: str) -> str:
+                    caminho: str, sobre: str = "") -> str:
     """Página de listagem: a capa e as páginas de assunto usam esta função.
 
     Listagem não leva chamada para a mentoria. Quem chega aqui ainda não leu
@@ -504,6 +539,11 @@ def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
         "hero_descricao": html.escape(descricao),
         "titulo_aba": html.escape(f"{titulo} · {tagline}" if tagline else titulo),
         "conteudo": conteudo,
+        "sobre": sobre,
+        # Com a seção "sobre" na página, repetir a bio no rodapé é ruído.
+        "rodape_bio": "" if sobre else (
+            f'<p class="rodape__bio"><strong>{html.escape(cfg.get("site", {}).get("autora", ""))}'
+            f'</strong><br />{html.escape(cfg.get("site", {}).get("autora_bio", ""))}</p>'),
         "menu": menu,
         "autora": html.escape(site.get("autora", "")),
         "autora_bio": html.escape(site.get("autora_bio", "")),
@@ -554,6 +594,7 @@ def construir_capa(edicoes: list[Edicao], series: dict, cfg: dict, template: str
         menu=bloco_menu(series, "./", "inicio"),
         prefixo="./",
         caminho="",
+        sobre=bloco_sobre(cfg, "./"),
     )
 
 
@@ -612,7 +653,11 @@ def main() -> int:
     if ASSETS.exists():
         shutil.copytree(ASSETS, SAIDA / "assets")
 
-    shutil.copy2(TEMPLATES / "estilo.css", SAIDA / "estilo.css")
+    # As @font-face vêm antes das regras, num arquivo só, para o navegador
+    # fazer uma requisição a menos.
+    fontes = (TEMPLATES / "fontes.css").read_text(encoding="utf-8")
+    estilo = (TEMPLATES / "estilo.css").read_text(encoding="utf-8")
+    (SAIDA / "estilo.css").write_text(fontes + "\n" + estilo, encoding="utf-8")
 
     for edicao in edicoes:
         destino = SAIDA / edicao.slug

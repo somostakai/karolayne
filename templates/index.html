@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="{{ site_nome }}" />
 <meta name="twitter:card" content="summary_large_image" />
 </head>
-<body>
+<body class="pagina-larga">
 
 <header class="topo">
   <a class="topo__marca" href="{{ prefixo }}">
@@ -29,16 +29,23 @@
 
 <main>
   <div class="hero">
-    <h1>{{ hero_titulo }}</h1>
-    <p class="hero__tagline">{{ hero_tagline }}</p>
-    <p class="hero__descricao">{{ hero_descricao }}</p>
+    <div>
+      <h1>{{ hero_titulo }}</h1>
+      <p class="hero__tagline">{{ hero_tagline }}</p>
+    </div>
+    <div class="hero__painel">
+      <img src="{{ logo }}" alt="" />
+      <p class="hero__descricao">{{ hero_descricao }}</p>
+    </div>
   </div>
 
   {{ conteudo }}
+
+  {{ sobre }}
 </main>
 
 <footer class="rodape">
-  <p class="rodape__bio"><strong>{{ autora }}</strong><br />{{ autora_bio }}</p>
+  {{ rodape_bio }}
   {{ rodape_links }}
   <p>© {{ ano }} {{ site_nome }}</p>
 </footer>
