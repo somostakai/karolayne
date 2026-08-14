@@ -3,8 +3,8 @@
     "nome": "Carta de Carreira",
     "tagline": "Transição, posicionamento e LinkedIn — sem achismo.",
     "descricao": "Conteúdo direto sobre transição de carreira, posicionamento profissional e LinkedIn, por quem mentora isso todo dia.",
-    "url": "https://somostakai.github.io/carta-de-carreira",
-    "autora": "Karol",
+    "url": "https://somostakai.github.io/karolayne",
+    "autora": "Karolayne",
     "autora_bio": "Mentora de carreira. Ajudo profissionais a se posicionarem com clareza e a fazerem transições que fazem sentido.",
     "logo": "assets/logo-takai.png",
     "og_image": ""
@@ -14,13 +14,14 @@
     "titulo": "Quer fazer isso com acompanhamento?",
     "texto": "Se esse conteúdo te ajudou, imagina ele aplicado ao seu caso, com alguém olhando junto. É isso que eu faço na mentoria: a gente destrava seu posicionamento e monta um plano de carreira que cabe na sua vida real.",
     "botao": "Quero conversar sobre a mentoria",
-    "link": "https://wa.me/5500000000000",
-    "nota": "Conversa inicial sem compromisso."
+    "link": "https://forms.gle/8pibyQncfbJMLprP9",
+    "nota": "É rápido de preencher e eu respondo pessoalmente.",
+    "parametro_origem": ""
   },
 
   "rodape": {
-    "instagram": "https://instagram.com/somostakai",
-    "linkedin": "https://linkedin.com/in/",
+    "instagram": "",
+    "linkedin": "",
     "site": "https://somostakai.com.br"
   },
 

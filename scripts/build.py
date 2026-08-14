@@ -276,16 +276,52 @@ def preencher(template: str, valores: dict[str, str]) -> str:
     return re.sub(r"\{\{\s*([\w.]+)\s*\}\}", trocar, template)
 
 
-def com_utm(link: str, campanha: str) -> str:
-    """Anexa UTMs ao link do CTA para saber qual edição trouxe o clique."""
+_AVISOS: set[str] = set()
+
+
+def _avisar(msg: str) -> None:
+    """Avisa uma vez só, mesmo com várias edições."""
+    if msg not in _AVISOS:
+        _AVISOS.add(msg)
+        print(f"  aviso: {msg}")
+
+
+def link_cta(link: str, campanha: str, cta: dict) -> str:
+    """Marca o link do CTA com a edição de origem.
+
+    Google Forms ignora UTM: o `forms.gle` é encurtador e descarta a query
+    no redirect, e o Forms não reporta origem de tráfego. Para esse caso o
+    caminho é preencher um campo do próprio formulário — configure
+    `cta.parametro_origem` com o `entry.NNNNN` da pergunta "como você chegou
+    até aqui" e cada edição chega com a resposta já preenchida.
+    """
     if not link or link.startswith(("#", "mailto:", "tel:")):
         return link
 
     partes = urlsplit(link)
     query = dict(parse_qsl(partes.query, keep_blank_values=True))
-    query.setdefault("utm_source", "carta-de-carreira")
-    query.setdefault("utm_medium", "cta")
-    query.setdefault("utm_campaign", campanha)
+    eh_forms = "forms.gle" in partes.netloc or "/forms/" in partes.path
+    parametro = cta.get("parametro_origem", "").strip()
+
+    if parametro:
+        if "forms.gle" in partes.netloc:
+            _avisar(
+                "cta.link é um forms.gle (encurtador) e descarta o prefill. "
+                "Troque pela URL longa do formulário (docs.google.com/forms/...)."
+            )
+        query["usp"] = "pp_url"
+        query[parametro] = campanha
+    elif eh_forms:
+        _avisar(
+            "CTA aponta para o Google Forms sem cta.parametro_origem: as "
+            "edições não vão ser distinguíveis nas respostas. Veja o README."
+        )
+        return link
+    else:
+        query.setdefault("utm_source", "carta-de-carreira")
+        query.setdefault("utm_medium", "cta")
+        query.setdefault("utm_campaign", campanha)
+
     return urlunsplit(partes._replace(query=urlencode(query)))
 
 
@@ -298,9 +334,22 @@ def bloco_cta(cfg: dict, campanha: str) -> str:
     return f"""<section class="cta">
   <h2 class="cta__titulo">{html.escape(cta.get("titulo", ""))}</h2>
   <p class="cta__texto">{html.escape(cta.get("texto", ""))}</p>
-  <a class="cta__botao" href="{com_utm(cta["link"], campanha)}" target="_blank" rel="noopener">{html.escape(cta.get("botao", "Saber mais"))}</a>
+  <a class="cta__botao" href="{link_cta(cta["link"], campanha, cta)}" target="_blank" rel="noopener">{html.escape(cta.get("botao", "Saber mais"))}</a>
   {nota}
 </section>"""
+
+
+def bloco_rodape_links(cfg: dict) -> str:
+    """Só entra no rodapé o que estiver preenchido no config."""
+    rodape = cfg.get("rodape", {})
+    rotulos = {"instagram": "Instagram", "linkedin": "LinkedIn", "site": "Site"}
+
+    itens = [
+        f'<a href="{url}" target="_blank" rel="noopener">{rotulo}</a>'
+        for chave, rotulo in rotulos.items()
+        if (url := rodape.get(chave, "").strip())
+    ]
+    return f'<p class="rodape__links">{"".join(itens)}</p>' if itens else ""
 
 
 def bloco_relacionadas(atual: Edicao, todas: list[Edicao]) -> str:
@@ -347,9 +396,7 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
         "descricao": html.escape(descricao),
         "url_canonica": f"{base_url}/{edicao.url}" if base_url else "",
         "og_image": og_image,
-        "instagram": rodape.get("instagram", ""),
-        "linkedin": rodape.get("linkedin", ""),
-        "site_link": rodape.get("site", ""),
+        "rodape_links": bloco_rodape_links(cfg),
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),
         "prefixo": "../",
@@ -387,9 +434,7 @@ def construir_indice(edicoes: list[Edicao], cfg: dict, template: str) -> str:
         "cta": bloco_cta(cfg, "index"),
         "url_canonica": f"{base_url}/" if base_url else "",
         "og_image": site.get("og_image") or (f"{base_url}/{site.get('logo', '')}" if base_url else ""),
-        "instagram": rodape.get("instagram", ""),
-        "linkedin": rodape.get("linkedin", ""),
-        "site_link": rodape.get("site", ""),
+        "rodape_links": bloco_rodape_links(cfg),
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),
         "logo": site.get("logo", ""),

@@ -110,19 +110,39 @@ URL em `site.url` no `config.json`, rode o build de novo e publique.
 Mande sempre o link **da edição**, não o do índice. A pessoa veio por um
 assunto específico; fazer ela procurar perde leitura.
 
-## Como saber se converteu
+## Como saber qual edição converteu
 
-O build já anexa UTMs ao link do CTA, com o slug da edição como campanha:
+O CTA aponta para um Google Formulário, e aí tem uma pegadinha: **UTM não
+funciona.** O `forms.gle` é um encurtador e descarta a query no redirect, e o
+Forms não reporta origem de tráfego. Sem tratamento, todas as respostas
+chegam iguais e você não sabe qual edição trouxe cada pessoa.
 
-```
-https://wa.me/...?utm_source=carta-de-carreira&utm_medium=cta&utm_campaign=linkedin-headline
-```
+O jeito que funciona é o formulário se autopreencher. Configuração, uma vez só:
 
-Quem chegar no WhatsApp por ali vai carregar essa marcação, então dá para
-saber qual edição trouxe a conversa. Se quiser número de visitas também, cole
-um script de analytics no campo `analytics` do `config.json` (o
-[Plausible](https://plausible.io) e o [Umami](https://umami.is) são leves e
-não precisam de aviso de cookie).
+1. No formulário, crie uma pergunta de resposta curta: **"Como você chegou
+   até aqui?"** (pode deixar por último, e não obrigatória)
+2. Menu de três pontos → **Obter link pré-preenchido** → escreva qualquer
+   coisa nessa pergunta → **Obter link**
+3. O link copiado tem um trecho `entry.123456789=qualquercoisa`. Copie só o
+   `entry.123456789`
+4. Cole em `cta.parametro_origem` no `config.json`
+5. Troque `cta.link` pela **URL longa** do formulário
+   (`docs.google.com/forms/d/e/.../viewform`) — o `forms.gle` curto descarta
+   o preenchimento
+
+Feito isso, cada edição passa a mandar o próprio slug na resposta, e a aba de
+respostas mostra em qual texto a pessoa estava quando decidiu te procurar.
+
+Enquanto `parametro_origem` estiver vazio, o build avisa e deixa o link
+intacto — nada quebra, você só fica sem a atribuição.
+
+> Se um dia o CTA apontar para WhatsApp ou Calendly em vez do Forms, o build
+> volta a anexar UTMs sozinho (`utm_campaign=<slug-da-edição>`). Não precisa
+> mexer em nada.
+
+Para número de visitas, cole um script no campo `analytics` do `config.json`
+(o [Plausible](https://plausible.io) e o [Umami](https://umami.is) são leves
+e não precisam de aviso de cookie).
 
 ## Estrutura
 

@@ -1,23 +1,27 @@
 /* Carta de Carreira — estilo único do site.
-   Mexeu aqui, mudou no índice e em todas as edições. */
+   Mexeu aqui, mudou no índice e em todas as edições.
+
+   Paleta derivada das cores da marca: #f7f4f2 (fundo) e #d9a7a1 (rosa).
+   O rosa é claro demais para carregar texto ou servir de fundo de botão
+   (2,1:1 contra branco), então ele fica no uso decorativo e os tons que
+   carregam texto são versões escurecidas da MESMA matiz (6°). Todos os
+   pares abaixo passam em 4,5:1. */
 
 :root {
-  --surface: #f2ece0;
-  --surface-raised: #fbf8f2;
-  --ink: #18181a;
-  --ink-secondary: #4c4b45;
-  --ink-muted: #6e6b62;
-  --border: #e0d5c8;
-  /* terracota do logo — decorativo (etiquetas, bordas, barra de progresso) */
-  --accent: #be755b;
-  /* versão escurecida, para texto e botão: garante contraste AA sobre claro */
-  --accent-forte: #9a5540;
-  --accent-tint: #f6e6dd;
-  --destaque: #be755b;
-  --destaque-tint: #f6e6dd;
-  --btn-ink: #fbf8f2;
-  --btn-bg: #9a5540;
-  --shadow: 0 1px 2px rgba(18, 24, 28, 0.06), 0 8px 24px -12px rgba(18, 24, 28, 0.18);
+  --surface: #f7f4f2;
+  --surface-raised: #ffffff;
+  --ink: #1f1a19;
+  --ink-secondary: #614f4c;
+  --ink-muted: #836a67;
+  --border: #eededd;
+  --accent: #d9a7a1;        /* decorativo: bordas, barra de progresso */
+  --accent-forte: #8b5b55;  /* carrega texto: etiquetas, links, botão */
+  --accent-tint: #f7e5e3;
+  --destaque: #d9a7a1;
+  --destaque-tint: #f7e5e3;
+  --btn-ink: #ffffff;
+  --btn-bg: #8b5b55;
+  --shadow: 0 1px 2px rgba(31, 26, 25, 0.05), 0 8px 24px -12px rgba(31, 26, 25, 0.16);
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color-scheme: light;
@@ -25,38 +29,38 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --surface: #131311;
-    --surface-raised: #1c1c1a;
-    --ink: #f3efe6;
-    --ink-secondary: #c7c0b2;
-    --ink-muted: #8c8778;
-    --border: #332f2b;
-    --accent: #d99a7e;
-    --accent-forte: #e2a98e;
-    --accent-tint: rgba(217, 154, 126, 0.18);
-    --destaque: #d99a7e;
-    --destaque-tint: rgba(217, 154, 126, 0.16);
-    --btn-ink: #131311;
-    --btn-bg: #d99a7e;
+    --surface: #161313;
+    --surface-raised: #211d1c;
+    --ink: #f4f1f1;
+    --ink-secondary: #cbc3c2;
+    --ink-muted: #a09392;
+    --border: #37302f;
+    --accent: #d9a7a1;
+    --accent-forte: #e3bcb7;
+    --accent-tint: rgba(217, 167, 161, 0.18);
+    --destaque: #d9a7a1;
+    --destaque-tint: rgba(217, 167, 161, 0.16);
+    --btn-ink: #161313;
+    --btn-bg: #d9a7a1;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --surface: #131311;
-  --surface-raised: #1c1c1a;
-  --ink: #f3efe6;
-  --ink-secondary: #c7c0b2;
-  --ink-muted: #8c8778;
-  --border: #332f2b;
-  --accent: #d99a7e;
-  --accent-forte: #e2a98e;
-  --accent-tint: rgba(217, 154, 126, 0.18);
-  --destaque: #d99a7e;
-  --destaque-tint: rgba(217, 154, 126, 0.16);
-  --btn-ink: #131311;
-  --btn-bg: #d99a7e;
+  --surface: #161313;
+  --surface-raised: #211d1c;
+  --ink: #f4f1f1;
+  --ink-secondary: #cbc3c2;
+  --ink-muted: #a09392;
+  --border: #37302f;
+  --accent: #d9a7a1;
+  --accent-forte: #e3bcb7;
+  --accent-tint: rgba(217, 167, 161, 0.18);
+  --destaque: #d9a7a1;
+  --destaque-tint: rgba(217, 167, 161, 0.16);
+  --btn-ink: #161313;
+  --btn-bg: #d9a7a1;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
   color-scheme: dark;
 }
