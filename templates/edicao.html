@@ -22,8 +22,11 @@
 <div class="progresso" id="progresso"></div>
 
 <header class="topo">
-  <img src="{{ logo }}" alt="" />
-  <a href="{{ prefixo }}">{{ site_nome }}</a>
+  <a class="topo__marca" href="{{ prefixo }}">
+    <img src="{{ logo }}" alt="" />
+    <span>{{ site_nome }}</span>
+  </a>
+  {{ menu }}
 </header>
 
 <main>
@@ -32,6 +35,7 @@
     <h1>{{ titulo }}</h1>
     <p class="subtitulo">{{ subtitulo }}</p>
     <p class="meta">{{ data_legivel }} · {{ minutos }} min de leitura</p>
+    {{ cta_topo }}
   </div>
 
   <article>

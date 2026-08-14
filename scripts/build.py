@@ -16,6 +16,7 @@ import json
 import re
 import shutil
 import sys
+import unicodedata
 from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlencode, urlsplit, urlunsplit, parse_qsl
@@ -390,6 +391,68 @@ def bloco_relacionadas(atual: Edicao, todas: list[Edicao]) -> str:
 </section>"""
 
 
+def slugificar(texto: str) -> str:
+    """'LinkedIn' -> 'linkedin'; 'Transição de carreira' -> 'transicao-de-carreira'."""
+    normalizado = unicodedata.normalize("NFKD", texto)
+    sem_acento = "".join(c for c in normalizado if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", sem_acento.lower()).strip("-") or "serie"
+
+
+def agrupar_series(edicoes: list[Edicao]) -> dict[str, list[Edicao]]:
+    """Séries na ordem em que aparecem, cada uma com suas edições ordenadas."""
+    series: dict[str, list[Edicao]] = {}
+    for e in edicoes:
+        if e.serie:
+            series.setdefault(e.serie, []).append(e)
+    for lista in series.values():
+        lista.sort(key=lambda e: int(e.numero) if e.numero.isdigit() else 99)
+    return series
+
+
+def bloco_menu(series: dict, prefixo: str, atual: str = "") -> str:
+    """Menu de assuntos. Com uma série só ele já dá ao site cara de site,
+    e vai crescendo sozinho conforme novos assuntos aparecem no content/."""
+    itens = []
+    marca = ' aria-current="page"' if atual == "inicio" else ""
+    itens.append(f'<a href="{prefixo}"{marca}>Todos os textos</a>')
+
+    for nome in series:
+        slug = slugificar(nome)
+        marca = ' aria-current="page"' if atual == slug else ""
+        itens.append(f'<a href="{prefixo}{slug}/"{marca}>{html.escape(nome)}</a>')
+
+    return f'<nav class="menu" aria-label="Assuntos">{"".join(itens)}</nav>'
+
+
+def bloco_cta_topo(edicao: Edicao, cfg: dict) -> str:
+    """Convite discreto logo abaixo da data. Quem já chegou com o problema na
+    cabeça não precisa ler o artigo inteiro para achar como falar com a Karol."""
+    cta = cfg.get("cta", {})
+    topo = cta.get("topo", {})
+    texto = topo.get(edicao.serie) or topo.get("padrao", "")
+    if not texto or not cta.get("link"):
+        return ""
+
+    destino = link_cta(cta["link"], f"{edicao.slug}-topo", cta)
+    return (f'<a class="cta-topo" href="{destino}" target="_blank" rel="noopener">'
+            f'{html.escape(texto)}<span class="cta-topo__seta" aria-hidden="true">&rarr;</span></a>')
+
+
+def cartoes_html(edicoes: list[Edicao], prefixo: str) -> str:
+    cartoes = []
+    for e in edicoes:
+        etiqueta = f'<span class="card__etiqueta">{html.escape(e.etiqueta)}</span>' if e.etiqueta else ""
+        cartoes.append(f"""<li class="card">
+  <a class="card__link" href="{prefixo}{e.url}">
+    {etiqueta}
+    <h2 class="card__titulo">{html.escape(e.titulo)}</h2>
+    <p class="card__resumo">{html.escape(e.resumo or e.subtitulo)}</p>
+    <p class="card__meta">{e.data_legivel} · {e.minutos} min de leitura</p>
+  </a>
+</li>""")
+    return "\n".join(cartoes)
+
+
 def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: str) -> str:
     site = cfg.get("site", {})
     rodape = cfg.get("rodape", {})
@@ -406,6 +469,8 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
         "minutos": str(edicao.minutos),
         "corpo": edicao.corpo_html,
         "cta": bloco_cta(cfg, edicao.slug),
+        "cta_topo": bloco_cta_topo(edicao, cfg),
+        "menu": bloco_menu(agrupar_series(todas), "../", slugificar(edicao.serie) if edicao.serie else ""),
         "relacionadas": bloco_relacionadas(edicao, todas),
         "site_nome": html.escape(site.get("nome", "")),
         "autora": html.escape(site.get("autora", "")),
@@ -421,41 +486,95 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
     })
 
 
-def construir_indice(edicoes: list[Edicao], cfg: dict, template: str) -> str:
+def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
+                    descricao: str, conteudo: str, menu: str, prefixo: str,
+                    caminho: str) -> str:
+    """Página de listagem: a capa e as páginas de assunto usam esta função.
+
+    Listagem não leva chamada para a mentoria. Quem chega aqui ainda não leu
+    nada, e abrir com oferta faz o site parecer página de venda.
+    """
     site = cfg.get("site", {})
-    rodape = cfg.get("rodape", {})
     base_url = site.get("url", "").rstrip("/")
-
-    cartoes = []
-    for e in edicoes:
-        etiqueta = f'<span class="card__etiqueta">{html.escape(e.etiqueta)}</span>' if e.etiqueta else ""
-        cartoes.append(f"""<li class="card">
-  <a class="card__link" href="{e.url}">
-    {etiqueta}
-    <h2 class="card__titulo">{html.escape(e.titulo)}</h2>
-    <p class="card__resumo">{html.escape(e.resumo or e.subtitulo)}</p>
-    <p class="card__meta">{e.data_legivel} · {e.minutos} min de leitura</p>
-  </a>
-</li>""")
-
-    vazio = '<p class="vazio">Primeira edição chegando.</p>' if not cartoes else ""
 
     return preencher(template, {
         "site_nome": html.escape(site.get("nome", "")),
-        "tagline": html.escape(site.get("tagline", "")),
-        "descricao": html.escape(site.get("descricao", "")),
+        "hero_titulo": html.escape(titulo),
+        "hero_tagline": html.escape(tagline),
+        "hero_descricao": html.escape(descricao),
+        "titulo_aba": html.escape(f"{titulo} · {tagline}" if tagline else titulo),
+        "conteudo": conteudo,
+        "menu": menu,
         "autora": html.escape(site.get("autora", "")),
         "autora_bio": html.escape(site.get("autora_bio", "")),
-        "cartoes": "\n".join(cartoes),
-        "vazio": vazio,
-        "cta": bloco_cta(cfg, "index"),
-        "url_canonica": f"{base_url}/" if base_url else "",
+        "descricao": html.escape(descricao),
+        "url_canonica": f"{base_url}/{caminho}" if base_url else "",
         "og_image": url_absoluta(site.get("og_image") or site.get("logo", ""), base_url),
         "rodape_links": bloco_rodape_links(cfg),
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),
-        "logo": site.get("logo", ""),
+        "prefixo": prefixo,
+        "logo": prefixo + site.get("logo", ""),
     })
+
+
+def construir_capa(edicoes: list[Edicao], series: dict, cfg: dict, template: str) -> str:
+    site = cfg.get("site", {})
+
+    if not edicoes:
+        conteudo = '<p class="vazio">Primeiro texto chegando.</p>'
+    else:
+        soltas = [e for e in edicoes if not e.serie]
+        grupos = []
+        for nome, lista in series.items():
+            slug = slugificar(nome)
+            # Com um texto só, "ver todos os 1" leva para uma página igual a esta.
+            todos = (f'<a class="grupo__todos" href="./{slug}/">ver todos os {len(lista)}</a>'
+                     if len(lista) > 1 else "")
+            grupos.append(f"""<section class="grupo">
+  <div class="grupo__topo">
+    <h2 class="grupo__titulo">{html.escape(nome)}</h2>
+    {todos}
+  </div>
+  <ul class="cards">{cartoes_html(lista, "./")}</ul>
+</section>""")
+        if soltas:
+            grupos.append(f"""<section class="grupo">
+  <div class="grupo__topo"><h2 class="grupo__titulo">Outros textos</h2></div>
+  <ul class="cards">{cartoes_html(soltas, "./")}</ul>
+</section>""")
+        conteudo = "\n".join(grupos)
+
+    return construir_lista(
+        cfg, template,
+        titulo=site.get("nome", ""),
+        tagline=site.get("tagline", ""),
+        descricao=site.get("descricao", ""),
+        conteudo=conteudo,
+        menu=bloco_menu(series, "./", "inicio"),
+        prefixo="./",
+        caminho="",
+    )
+
+
+def construir_pagina_serie(nome: str, lista: list[Edicao], series: dict,
+                           cfg: dict, template: str) -> str:
+    slug = slugificar(nome)
+    descricoes = cfg.get("site", {}).get("descricao_series", {})
+    descricao = descricoes.get(nome) or f"Tudo que eu já escrevi por aqui sobre {nome}."
+
+    conteudo = f'<ul class="cards">{cartoes_html(lista, "../")}</ul>'
+
+    return construir_lista(
+        cfg, template,
+        titulo=nome,
+        tagline=f"{len(lista)} texto{'s' if len(lista) != 1 else ''}",
+        descricao=descricao,
+        conteudo=conteudo,
+        menu=bloco_menu(series, "../", slug),
+        prefixo="../",
+        caminho=f"{slug}/",
+    )
 
 
 # --------------------------------------------------------------------------
@@ -503,10 +622,29 @@ def main() -> int:
         )
         print(f"  → docs/{edicao.slug}/index.html  ({edicao.minutos} min)")
 
+    series = agrupar_series(edicoes)
+
+    # Uma série cujo slug bata com o slug de um texto sobrescreveria a página
+    # do texto. Melhor falhar aqui do que publicar o site com um texto sumido.
+    slugs_textos = {e.slug for e in edicoes}
+    for nome in series:
+        if slugificar(nome) in slugs_textos:
+            print(f"\nERRO: a série '{nome}' vira '{slugificar(nome)}/', que já é a "
+                  f"URL de um texto. Renomeie a série ou o slug do texto.")
+            return 1
+
+    for nome, lista in series.items():
+        destino = SAIDA / slugificar(nome)
+        destino.mkdir(parents=True, exist_ok=True)
+        (destino / "index.html").write_text(
+            construir_pagina_serie(nome, lista, series, cfg, tpl_indice), encoding="utf-8"
+        )
+        print(f"  → docs/{slugificar(nome)}/index.html  ({len(lista)} texto(s))")
+
     (SAIDA / "index.html").write_text(
-        construir_indice(edicoes, cfg, tpl_indice), encoding="utf-8"
+        construir_capa(edicoes, series, cfg, tpl_indice), encoding="utf-8"
     )
-    print(f"  → docs/index.html  ({len(edicoes)} edição/edições)")
+    print(f"  → docs/index.html  ({len(edicoes)} texto(s), {len(series)} assunto(s))")
     print("\nPronto. Abra docs/index.html no navegador para conferir.")
     return 0
 

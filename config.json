@@ -9,7 +9,11 @@
     "autora": "Karolayne",
     "autora_bio": "Mentora de carreira. Ajudo profissionais a se posicionarem com clareza e a fazerem transições que fazem sentido.",
     "logo": "assets/marca-takai.svg",
-    "og_image": "assets/og-imagem.png"
+    "og_image": "assets/og-imagem.png",
+    "_comentario_series": "Descrição de cada página de assunto. Sem isso, uma frase genérica é usada.",
+    "descricao_series": {
+      "LinkedIn": "Como usar o LinkedIn para ser encontrada pelas oportunidades certas, sem virar criadora de conteúdo."
+    }
   },
   "cta": {
     "titulo": "Quer fazer isso com acompanhamento?",
@@ -20,7 +24,12 @@
     "_comentario_origem": "entry.NNN de uma pergunta de RESPOSTA CURTA; recebe o slug da edição. Lista suspensa não aceita valor livre.",
     "parametro_origem": "",
     "_comentario_prefill": "Pares entry.NNN: valor fixo, para já responder perguntas de opção. O valor tem que ser idêntico à opção cadastrada.",
-    "prefill": {}
+    "prefill": {},
+    "_comentario_topo": "Convite discreto abaixo da data, por assunto. A chave é o valor de 'serie' no frontmatter; 'padrao' vale para o resto.",
+    "topo": {
+      "padrao": "Precisa de ajuda com a sua carreira?",
+      "LinkedIn": "Precisa de ajuda com o seu LinkedIn?"
+    }
   },
   "rodape": {
     "instagram": "https://www.instagram.com/karolayne.os/",

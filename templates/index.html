@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{{ site_nome }} · {{ tagline }}</title>
+<title>{{ titulo_aba }}</title>
 <meta name="description" content="{{ descricao }}" />
 <link rel="canonical" href="{{ url_canonica }}" />
 <link rel="icon" href="{{ logo }}" />
-<link rel="stylesheet" href="estilo.css" />
+<link rel="stylesheet" href="{{ prefixo }}estilo.css" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="{{ site_nome }}" />
+<meta property="og:title" content="{{ hero_titulo }}" />
 <meta property="og:description" content="{{ descricao }}" />
 <meta property="og:url" content="{{ url_canonica }}" />
 <meta property="og:image" content="{{ og_image }}" />
@@ -20,23 +20,21 @@
 <body>
 
 <header class="topo">
-  <img src="{{ logo }}" alt="" />
-  <a href="./">{{ site_nome }}</a>
+  <a class="topo__marca" href="{{ prefixo }}">
+    <img src="{{ logo }}" alt="" />
+    <span>{{ site_nome }}</span>
+  </a>
+  {{ menu }}
 </header>
 
 <main>
   <div class="hero">
-    <h1>{{ site_nome }}</h1>
-    <p class="hero__tagline">{{ tagline }}</p>
-    <p class="hero__descricao">{{ descricao }}</p>
+    <h1>{{ hero_titulo }}</h1>
+    <p class="hero__tagline">{{ hero_tagline }}</p>
+    <p class="hero__descricao">{{ hero_descricao }}</p>
   </div>
 
-  <ul class="cards">
-    {{ cartoes }}
-  </ul>
-  {{ vazio }}
-
-  {{ cta }}
+  {{ conteudo }}
 </main>
 
 <footer class="rodape">
