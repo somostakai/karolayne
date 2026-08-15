@@ -1,7 +1,7 @@
 ---
 titulo: Seu LinkedIn não é um currículo
 subtitulo: E é exatamente por isso que o seu não está trazendo oportunidade nenhuma.
-data: 2026-08-11
+data: 2026-08-17
 serie: LinkedIn
 numero: 1
 resumo: A maior parte dos perfis descreve cargos. Os perfis que geram oportunidade descrevem problemas resolvidos. A diferença começa na primeira linha.
