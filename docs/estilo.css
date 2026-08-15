@@ -354,8 +354,11 @@ article blockquote p { margin: 0; }
   color: var(--ink); margin: 0 0 1.1rem;
 }
 .hero__descricao {
-  margin: 0; max-width: 40rem;
+  margin: 0; max-width: none;
   font-size: 1rem; line-height: 1.6; color: var(--ink-secondary);
+  /* Sem quebra imposta: a linha inteira cabe na largura da capa e só quebra
+     quando a tela é estreita demais para ela. */
+  text-wrap: pretty;
 }
 
 /* ---------- grade de textos ---------- */
