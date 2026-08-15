@@ -456,3 +456,7 @@ article blockquote p { margin: 0; }
   border-bottom: 1px solid var(--accent); padding-bottom: 2px;
 }
 .sobre__redes a:hover { color: var(--accent-forte); }
+
+/* Quebra de linha decidida no texto, respeitada só quando há largura para ela. */
+.quebra-larga { display: none; }
+@media (min-width: 48rem) { .quebra-larga { display: inline; } }

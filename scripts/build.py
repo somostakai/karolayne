@@ -543,7 +543,10 @@ def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
         "site_nome": html.escape(site.get("nome", "")),
         "hero_titulo": html.escape(titulo),
         "hero_tagline": html.escape(tagline),
-        "hero_descricao": html.escape(descricao),
+        # Quebra de linha escolhida à mão vira <br>, mas só em tela larga:
+        # no celular a linha não cabe e a quebra forçada deixaria um órfão.
+        "hero_descricao": html.escape(descricao).replace(
+            "\n", '<br class="quebra-larga" />'),
         "titulo_aba": html.escape(f"{titulo} · {tagline}" if tagline else titulo),
         "conteudo": conteudo,
         "sobre": sobre,
@@ -554,7 +557,8 @@ def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
         "menu": menu,
         "autora": html.escape(site.get("autora", "")),
         "autora_bio": html.escape(site.get("autora_bio", "")),
-        "descricao": html.escape(descricao),
+        # Nas meta tags a quebra não faz sentido: ali é atributo, não layout.
+        "descricao": html.escape(" ".join(descricao.split())),
         "url_canonica": f"{base_url}/{caminho}" if base_url else "",
         "og_image": url_absoluta(site.get("og_image") or site.get("logo", ""), base_url),
         "rodape_links": bloco_rodape_links(cfg),
