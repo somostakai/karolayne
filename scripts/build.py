@@ -11,6 +11,7 @@ Grava: docs/  (pasta servida pelo GitHub Pages)
 
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -33,6 +34,9 @@ MESES = [
 ]
 
 PALAVRAS_POR_MINUTO = 200
+
+# Preenchida no build a partir do conteúdo da folha de estilo.
+VERSAO_ESTILO = ""
 
 
 # --------------------------------------------------------------------------
@@ -524,6 +528,7 @@ def construir_edicao(edicao: Edicao, todas: list[Edicao], cfg: dict, template: s
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),
         "prefixo": "../",
+        "estilo": f"../estilo.css?v={VERSAO_ESTILO}",
         "logo": "../" + site.get("logo", ""),
     })
 
@@ -565,6 +570,7 @@ def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
         "ano": str(date.today().year),
         "analytics": cfg.get("analytics", ""),
         "prefixo": prefixo,
+        "estilo": f"{prefixo}estilo.css?v={VERSAO_ESTILO}",
         "logo": prefixo + site.get("logo", ""),
     })
 
@@ -668,7 +674,15 @@ def main() -> int:
     # fazer uma requisição a menos.
     fontes = (TEMPLATES / "fontes.css").read_text(encoding="utf-8")
     estilo = (TEMPLATES / "estilo.css").read_text(encoding="utf-8")
-    (SAIDA / "estilo.css").write_text(fontes + "\n" + estilo, encoding="utf-8")
+    folha = fontes + "\n" + estilo
+    (SAIDA / "estilo.css").write_text(folha, encoding="utf-8")
+
+    # O navegador guarda o CSS em cache por muito tempo. Sem isto, quem já
+    # visitou o site continua vendo o visual antigo depois de uma mudança,
+    # inclusive nós ao conferir o resultado. A versão vem do conteúdo: muda o
+    # CSS, muda a URL, e só então o navegador busca de novo.
+    global VERSAO_ESTILO
+    VERSAO_ESTILO = hashlib.sha256(folha.encode("utf-8")).hexdigest()[:8]
 
     for edicao in edicoes:
         destino = SAIDA / edicao.slug
