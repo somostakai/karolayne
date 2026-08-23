@@ -22,6 +22,15 @@ promessa rápido e provar competência sem vender no meio do texto.
 Se a Karol não disse o tema, **pergunte** antes de escrever. Nunca invente o
 tema de uma edição.
 
+## Antes de publicar, mostre o texto no chat
+
+A Karol prefere ler a edição **na própria conversa**, não abrindo arquivo nem
+prévia. Depois de escrever, cole o texto inteiro na resposta, formatado para
+leitura, e só publique depois do aval dela.
+
+Enquanto isso, o arquivo fica com `rascunho: sim`, que o mantém fora do site.
+É texto assinado por ela: nada sobe sem revisão.
+
 ## Formato do arquivo
 
 Crie `content/AAAA-MM-DD-slug-curto.md`. O slug vira a URL, então mantenha
