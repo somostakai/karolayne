@@ -212,7 +212,8 @@ article blockquote {
   font-family: var(--citacao); font-style: italic;
   font-size: 1.22rem; line-height: 1.5;
 }
-article blockquote p { margin: 0; }
+article blockquote p { margin: 0 0 0.85rem; }
+article blockquote p:last-child { margin-bottom: 0; }
 
 .callout {
   background: var(--surface-raised); border: 1px solid var(--border);

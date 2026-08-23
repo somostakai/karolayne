@@ -159,13 +159,27 @@ def renderizar_markdown(texto: str) -> str:
             i += 1
             continue
 
-        # Citação
+        # Citação. Uma linha ">" vazia separa parágrafos dentro do bloco: sem
+        # isso um exemplo de vários parágrafos sairia como um texto corrido só.
         if despida.startswith(">"):
-            corpo = []
+            linhas_citadas = []
             while i < len(linhas) and linhas[i].strip().startswith(">"):
-                corpo.append(linhas[i].strip()[1:].strip())
+                linhas_citadas.append(linhas[i].strip()[1:].strip())
                 i += 1
-            saida.append(f"<blockquote><p>{_inline(' '.join(corpo))}</p></blockquote>")
+
+            paragrafos: list[str] = []
+            acumulado: list[str] = []
+            for linha_citada in linhas_citadas:
+                if linha_citada:
+                    acumulado.append(linha_citada)
+                elif acumulado:
+                    paragrafos.append(" ".join(acumulado))
+                    acumulado = []
+            if acumulado:
+                paragrafos.append(" ".join(acumulado))
+
+            interno = "".join(f"<p>{_inline(par)}</p>" for par in paragrafos)
+            saida.append(f"<blockquote>{interno}</blockquote>")
             continue
 
         # Lista não ordenada
