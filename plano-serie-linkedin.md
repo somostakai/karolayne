@@ -8,7 +8,7 @@ de paraquedas na parte 3 pelo Instagram não fica sem contexto.
 | # | Tema | Promessa do post no Instagram | Status |
 |---|------|-------------------------------|--------|
 | 1 | Headline / posicionamento | "Seu LinkedIn está correto e mesmo assim ninguém te chama" | ✅ escrita |
-| 2 | Seção Sobre | "O campo que todo mundo deixa vazio e é o que mais converte" | a escrever |
+| 2 | Seção Sobre | "O campo que todo mundo deixa vazio e é o que mais converte" | ✅ escrita |
 | 3 | Experiências | "Pare de listar tarefas. Ninguém contrata tarefa." | a escrever |
 | 4 | Presença / conteúdo | "Como aparecer no LinkedIn sem virar influencer" | a escrever |
 
@@ -26,7 +26,7 @@ tem o que faz".
 
 ---
 
-## Parte 2. A seção Sobre
+## Parte 2. A seção Sobre ✅
 
 **Ângulo:** o "Sobre" não é uma biografia, é uma resposta à pergunta "por que
 você faz o que faz". A maior parte está em terceira pessoa, escrita como

@@ -5,7 +5,6 @@ data: 2026-08-24
 serie: LinkedIn
 numero: 2
 resumo: O LinkedIn corta a seção Sobre depois de três linhas. Quase todo mundo gasta essas três linhas com introdução e enterra a parte boa atrás de um clique que ninguém dá.
-rascunho: sim
 ---
 
 Toda vez que eu abro um perfil em mentoria, eu rolo até a seção Sobre e faço a mesma coisa: leio as três primeiras linhas e paro.
