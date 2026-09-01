@@ -13,7 +13,7 @@ Não é preguiça. É que é exatamente isso que o resto do mundo faz.
 
 O LinkedIn corta essa seção depois de umas três linhas e esconde o resto atrás de um "ver mais". Quem está olhando o seu perfil está com pressa, provavelmente entre uma reunião e outra, e quase nunca clica. Então tudo o que você escreveu depois daquele corte existe tecnicamente, mas não existe na prática.
 
-E o que quase todo mundo coloca nessas três linhas privilegiadas?
+O que quase todo mundo coloca nessas três linhas privilegiadas?
 
 > Profissional com mais de 8 anos de experiência em gestão de projetos, com sólida atuação em ambientes dinâmicos e multidisciplinares.
 
@@ -76,7 +76,7 @@ Repare que a primeira linha não fala da pessoa. Fala do problema de quem lê. �
 **Frase de missão genérica.** "Acredito que pessoas são o maior ativo de uma empresa." Pode até ser verdade, mas não diz nada sobre você.
 
 ::: destaque
-**E se a minha história for confusa?**
+**Como contar uma história que é confusa?**
 
 Se você mudou de área duas ou três vezes, a tentação é esconder isso e apresentar só a parte mais recente. Não faça.
 

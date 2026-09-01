@@ -73,6 +73,16 @@ tentação aparecer, o certo é uma destas saídas:
 
 Para intervalo de números, escreva "de 4 a 7", não "4–7".
 
+**Nunca comece frase com "E".** Depois de ponto final, ponto de interrogação
+ou exclamação, a próxima frase não abre com "E". Vale para título, subtítulo,
+resumo, corpo e config. Saídas:
+
+- junte as duas frases com vírgula: *abro dezenas de perfis, e tem um padrão*
+- corte o "E", que quase sempre não faz falta: ~~E o que todo mundo escreve
+  ali?~~ → *O que todo mundo escreve ali?*
+- troque por outra ligação: *Mesmo assim*, *Fora que*, *Além disso*, *Agora*
+- em pergunta hipotética, "E se..." vira *Como fica quando...*
+
 **Escreva em linguagem neutra.** Quem lê pode ser de qualquer gênero, e o
 texto não pode presumir. Nada de "sozinha", "encontrada", "criadora",
 "preparada", "a leitora". Saídas que funcionam sem travar a frase:

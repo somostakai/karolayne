@@ -4,7 +4,7 @@ subtitulo: Se duas pessoas no mesmo cargo têm o mesmo texto, o texto não é so
 data: 2026-08-31
 serie: LinkedIn
 numero: 3
-resumo: A maior parte das experiências no LinkedIn é a descrição da vaga copiada. Isso descreve o cargo, não quem está nele. E cargo nenhum foi contratado até hoje.
+resumo: A maior parte das experiências no LinkedIn é a descrição da vaga copiada. Isso descreve o cargo, não quem está nele. Cargo nenhum foi contratado até hoje.
 ---
 
 Tem um exercício que eu faço em mentoria e que constrange todo mundo. Inclusive a mim, na primeira vez que fiz comigo.
@@ -53,7 +53,7 @@ Repare no que a versão original perde:
 
 > Responsável pelo atendimento à carteira de clientes, garantindo a satisfação e o cumprimento dos SLAs acordados.
 
-E o que a mesma pessoa poderia ter escrito:
+Agora o que a mesma pessoa poderia ter escrito:
 
 > A carteira tinha 90 clientes e nenhuma régua de contato: quem reclamava era atendido, quem ficava quieto sumia na renovação. Montei um acompanhamento por etapa do contrato e passei a falar com o cliente antes da renovação, não depois. O cancelamento caiu de 18% para 11% em um ano.
 
@@ -81,7 +81,7 @@ Um exemplo sem métrica nenhuma e que ainda assim funciona:
 Não tem percentual ali. Mas tem contexto, ação e mudança, e dá para entender exatamente o que aquela pessoa resolveu.
 
 ::: destaque
-**E se eu não puder falar dos números da empresa?**
+**Como fazer quando os números são confidenciais?**
 
 Muita gente trabalha com dado confidencial e trava por isso. Mas você quase nunca precisa do número absoluto.
 
@@ -121,7 +121,7 @@ Responda estas três perguntas em uma frase cada:
 
 Junte as três respostas na ordem e leia em voz alta. Pronto, esse é o novo item.
 
-Se você não conseguir responder a terceira pergunta, preste atenção: pode ser que aquele item não mereça estar no seu perfil. E isso também é uma informação útil.
+Se você não conseguir responder a terceira pergunta, preste atenção: pode ser que aquele item não mereça estar no seu perfil. Isso também é uma informação útil.
 :::
 
 Faça isso com um item por dia durante uma semana. Em sete dias o seu perfil inteiro mudou de patamar, sem você ter parado nenhuma tarde para "arrumar o LinkedIn".

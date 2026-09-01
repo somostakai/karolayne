@@ -1,17 +1,17 @@
 ---
 titulo: Seu LinkedIn não é um currículo
-subtitulo: E é exatamente por isso que o seu não está trazendo oportunidade nenhuma.
+subtitulo: É exatamente por isso que o seu não está trazendo oportunidade nenhuma.
 data: 2026-08-17
 serie: LinkedIn
 numero: 1
 resumo: A maior parte dos perfis descreve cargos. Os perfis que geram oportunidade descrevem problemas resolvidos. A diferença começa na primeira linha.
 ---
 
-Toda semana eu abro dezenas de perfis no LinkedIn em sessões de mentoria. E tem um padrão que se repete tanto que já dá pra prever antes de rolar a página.
+Toda semana eu abro dezenas de perfis no LinkedIn em sessões de mentoria, e tem um padrão que se repete tanto que já dá pra prever antes de rolar a página.
 
-O perfil está *correto*. Cargo certo, empresa certa, datas certas, tudo no lugar. E mesmo assim não acontece nada. Nenhum recrutador chama, nenhuma conversa nasce dali, nenhuma oportunidade aparece.
+O perfil está *correto*. Cargo certo, empresa certa, datas certas, tudo no lugar. Mesmo assim, não acontece nada. Nenhum recrutador chama, nenhuma conversa nasce dali, nenhuma oportunidade aparece.
 
-A pessoa então conclui: "meu perfil precisa de mais coisa". E vai adicionar mais cursos, mais certificados, mais palavras-chave.
+A pessoa então conclui: "meu perfil precisa de mais coisa", e vai adicionar mais cursos, mais certificados, mais palavras-chave.
 
 Não é isso. O problema não é falta de conteúdo. É que o perfil foi escrito como currículo, e currículo e LinkedIn respondem a perguntas diferentes.
 
@@ -31,7 +31,7 @@ O headline, aquela linha embaixo do seu nome, é o pedaço mais valioso do seu p
 
 Ele aparece em todo lugar: na busca, nos comentários que você deixa, nas sugestões de conexão, na notificação que a pessoa recebe. Muita gente vai ler o seu headline e **nunca** abrir o seu perfil. Ele não é uma introdução ao perfil. Na maior parte das vezes, ele é o perfil.
 
-E o que quase todo mundo escreve ali? O cargo. Só o cargo.
+O que quase todo mundo escreve ali? O cargo. Só o cargo.
 
 > Analista de Marketing na Empresa X
 
@@ -41,7 +41,7 @@ Isso não diz nada que a foto e a experiência já não digam. Você gastou o es
 
 **Só o cargo.** "Gerente de Projetos". Existem milhares. O que te diferencia deles não está ali.
 
-**Palavra-chave empilhada.** "Gestão | Liderança | Inovação | Resultados | Estratégia | Pessoas". Parece completo, mas não significa nada. Ninguém termina de ler isso sabendo o que você faz. E "inovação" não é uma habilidade, é um substantivo bonito.
+**Palavra-chave empilhada.** "Gestão | Liderança | Inovação | Resultados | Estratégia | Pessoas". Parece completo, mas não significa nada. Ninguém termina de ler isso sabendo o que você faz. Fora que "inovação" não é uma habilidade, é um substantivo bonito.
 
 **Frase de efeito solta.** "Transformando desafios em oportunidades". Poderia estar no perfil de qualquer pessoa de qualquer área do planeta. Se serve para todo mundo, não serve para você.
 
@@ -70,7 +70,7 @@ Mais alguns exemplos:
 - **Dados:** ~~Cientista de Dados~~ → *Cientista de Dados | Traduzo dado bagunçado em decisão que o time comercial consegue usar*
 
 ::: destaque
-**E se eu estiver em transição e ainda não tiver "o que faço"?**
+**Como fica quando você está em transição e ainda não tem "o que faço"?**
 
 Aí o headline aponta para onde você vai, não para onde você estava, mas sempre ancorado no que você já sabe fazer. Algo como: *Em transição para Produto | 8 anos de atendimento ao cliente que viraram obsessão por entender usuário*.
 
