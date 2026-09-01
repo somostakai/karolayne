@@ -9,7 +9,7 @@ de paraquedas na parte 3 pelo Instagram não fica sem contexto.
 |---|------|-------------------------------|--------|
 | 1 | Headline / posicionamento | "Seu LinkedIn está correto e mesmo assim ninguém te chama" | ✅ escrita |
 | 2 | Seção Sobre | "O campo que todo mundo deixa vazio e é o que mais converte" | ✅ escrita |
-| 3 | Experiências | "Pare de listar tarefas. Ninguém contrata tarefa." | a escrever |
+| 3 | Experiências | "Pare de listar tarefas. Ninguém contrata tarefa." | ✅ escrita |
 | 4 | Presença / conteúdo | "Como aparecer no LinkedIn sem virar influencer" | a escrever |
 
 ---
@@ -48,7 +48,7 @@ enterra a parte boa no clique que ninguém dá.
 
 ---
 
-## Parte 3. Experiências que provam, não que listam
+## Parte 3. Experiências que provam, não que listam ✅
 
 **Ângulo:** a maioria copia a descrição da vaga para dentro do perfil. Isso
 descreve o **cargo**, não a **pessoa**. Duas pessoas no mesmo cargo têm o

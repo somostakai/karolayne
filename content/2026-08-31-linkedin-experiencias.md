@@ -5,7 +5,6 @@ data: 2026-08-31
 serie: LinkedIn
 numero: 3
 resumo: A maior parte das experiências no LinkedIn é a descrição da vaga copiada. Isso descreve o cargo, não quem está nele. E cargo nenhum foi contratado até hoje.
-rascunho: sim
 ---
 
 Tem um exercício que eu faço em mentoria e que constrange todo mundo. Inclusive a mim, na primeira vez que fiz comigo.
