@@ -427,6 +427,32 @@ def agrupar_series(edicoes: list[Edicao]) -> dict[str, list[Edicao]]:
     return series
 
 
+def bloco_aviso(cfg: dict) -> str:
+    """Faixa de aviso no topo das listagens, para estados temporários como uma
+    pausa nas publicações. Some sozinha depois de `ate`: um aviso de pausa que
+    fica no ar depois da volta é pior do que aviso nenhum, porque faz o site
+    parecer abandonado."""
+    aviso = cfg.get("aviso", {})
+    texto = aviso.get("texto", "").strip()
+    if not texto:
+        return ""
+
+    limite = aviso.get("ate", "").strip()
+    if limite:
+        try:
+            if date.today() > datetime.strptime(limite, "%Y-%m-%d").date():
+                print(f"  aviso vencido em {limite}, não publicado")
+                return ""
+        except ValueError:
+            _avisar(f"aviso.ate ({limite}) não é uma data AAAA-MM-DD. Aviso mantido.")
+
+    detalhe = aviso.get("detalhe", "").strip()
+    linha_detalhe = f'<span class="aviso__detalhe">{html.escape(detalhe)}</span>' if detalhe else ""
+    return (f'<div class="aviso" role="status">'
+            f'<strong class="aviso__texto">{html.escape(texto)}</strong>'
+            f'{linha_detalhe}</div>')
+
+
 def bloco_menu(series: dict, prefixo: str, atual: str = "") -> str:
     """Menu de assuntos. Com uma série só ele já dá ao site cara de site,
     e vai crescendo sozinho conforme novos assuntos aparecem no content/."""
@@ -568,6 +594,7 @@ def construir_lista(cfg: dict, template: str, *, titulo: str, tagline: str,
             "\n", '<br class="quebra-larga" />'),
         "titulo_aba": html.escape(f"{titulo} · {tagline}" if tagline else titulo),
         "conteudo": conteudo,
+        "aviso": bloco_aviso(cfg),
         "sobre": sobre,
         # Com a seção "sobre" na página, repetir a bio no rodapé é ruído.
         "rodape_bio": "" if sobre else (

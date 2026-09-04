@@ -45,5 +45,11 @@
     "texto": [
       "Eu ajudo profissionais a saírem do lugar onde estão travados: quem faz bem o que faz, mas que ninguém enxerga; quem quer mudar de área e não sabe como contar essa história sem parecer que está começando do zero."
     ]
+  },
+  "aviso": {
+    "_comentario": "Faixa no topo das páginas de listagem. Deixe 'texto' vazio para tirar do ar. Com 'ate' preenchido (AAAA-MM-DD), o aviso some sozinho depois dessa data, no primeiro build seguinte.",
+    "texto": "Publicações pausadas até a segunda semana de setembro.",
+    "detalhe": "Estou montando o próximo ciclo de conteúdo. Volto com a parte 4 da série de LinkedIn.",
+    "ate": "2026-09-14"
   }
 }

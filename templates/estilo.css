@@ -428,3 +428,16 @@ article blockquote p:last-child { margin-bottom: 0; }
 /* Quebra de linha decidida no texto, respeitada só quando há largura para ela. */
 .quebra-larga { display: none; }
 @media (min-width: 48rem) { .quebra-larga { display: inline; } }
+
+/* ---------- aviso temporário ---------- */
+
+.aviso {
+  margin: 1.5rem 0 0;
+  padding: 0.9rem 1.15rem;
+  background: var(--accent); color: var(--btn-ink);
+  border-radius: 12px;
+  font-family: var(--sans);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.6rem;
+}
+.aviso__texto { font-size: 0.95rem; font-weight: 700; }
+.aviso__detalhe { font-size: 0.9rem; opacity: 0.82; }
