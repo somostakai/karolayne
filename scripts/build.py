@@ -482,6 +482,18 @@ def bloco_cta_topo(edicao: Edicao, cfg: dict) -> str:
             f'{html.escape(texto)}<span class="cta-topo__seta" aria-hidden="true">&rarr;</span></a>')
 
 
+def grade_cartoes(edicoes: list[Edicao], prefixo: str) -> str:
+    """A lista de cartões já com a classe que diz quantos são.
+
+    Cada assunto da Carta tem quatro partes, então a linha é de quatro. Até a
+    série fechar, o grupo tem menos que isso, e aí a grade encolhe o número de
+    colunas em vez de deixar sobra: um cartão sozinho em coluna de um quarto
+    pareceria defeito.
+    """
+    classe = "cards" if len(edicoes) >= 4 else f"cards cards--{len(edicoes)}"
+    return f'<ul class="{classe}">{cartoes_html(edicoes, prefixo)}</ul>'
+
+
 def cartoes_html(edicoes: list[Edicao], prefixo: str) -> str:
     cartoes = []
     for i, e in enumerate(edicoes):
@@ -634,12 +646,12 @@ def construir_capa(edicoes: list[Edicao], series: dict, cfg: dict, template: str
     <h2 class="grupo__titulo">{html.escape(nome)}</h2>
     {todos}
   </div>
-  <ul class="cards">{cartoes_html(lista, "./")}</ul>
+  {grade_cartoes(lista, "./")}
 </section>""")
         if soltas:
             grupos.append(f"""<section class="grupo">
   <div class="grupo__topo"><h2 class="grupo__titulo">Outros textos</h2></div>
-  <ul class="cards">{cartoes_html(soltas, "./")}</ul>
+  {grade_cartoes(soltas, "./")}
 </section>""")
         conteudo = "\n".join(grupos)
 
@@ -666,7 +678,7 @@ def construir_pagina_serie(nome: str, lista: list[Edicao], series: dict,
     # não ficar solto no fundo.
     conteudo = (f'<section class="grupo">'
                 f'<div class="grupo__topo"><h2 class="grupo__titulo">Todos os textos</h2></div>'
-                f'<ul class="cards">{cartoes_html(lista, "../")}</ul>'
+                f'{grade_cartoes(lista, "../")}'
                 f'</section>')
 
     return construir_lista(

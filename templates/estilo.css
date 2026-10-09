@@ -440,7 +440,7 @@ article blockquote p:last-child { margin-bottom: 0; }
 
 /* ---------- capa ---------- */
 
-.pagina-larga { --largura: 68rem; }
+.pagina-larga { --largura: 70rem; }
 
 .hero {
   padding: clamp(2rem, 5vw, 3rem) clamp(1.35rem, 4vw, 2.5rem);
@@ -481,10 +481,24 @@ article blockquote p:last-child { margin-bottom: 0; }
 }
 .grupo__todos:hover { color: var(--ink); text-decoration: underline; }
 
+/* Quatro por linha, porque cada assunto da Carta tem quatro partes. A grade
+   vai de 4 para 2 e de 2 para 1, sem passar por 3: em três colunas o quarto
+   cartão ficaria sozinho na linha de baixo, que é justamente o que a gente
+   não quer ver. As classes cards--1|2|3 cobrem o período em que a série ainda
+   não fechou e o grupo tem menos de quatro. */
 .cards {
   list-style: none; margin: 0; padding: 0;
   display: grid; gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 36rem) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards--1 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 68rem) {
+  .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cards--1, .cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .card {
   border-radius: var(--r-m); overflow: hidden;
@@ -497,17 +511,28 @@ article blockquote p:last-child { margin-bottom: 0; }
 .card--3 { background: var(--card-3); }
 .card__link {
   display: flex; flex-direction: column; height: 100%;
-  padding: 1.5rem 1.4rem 1.25rem; gap: 0.55rem;
+  padding: 1.25rem 1.25rem 1.1rem; gap: 0.5rem;
   text-decoration: none; color: var(--ink);
 }
-.card__etiqueta { color: var(--ink-secondary); }
+.card__etiqueta {
+  align-self: flex-start;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  color: var(--ink-secondary);
+  background: var(--vidro);
+  border: 1px solid var(--vidro-borda);
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+  box-shadow: 0 6px 16px -12px rgba(31, 26, 25, 0.4);
+}
 .card__titulo {
   font-family: var(--titulo);
-  font-size: 1.32rem; line-height: 1.16; letter-spacing: -0.02em;
-  font-weight: 800; margin: 0.15rem 0 0;
+  font-size: 1.22rem; line-height: 1.18; letter-spacing: -0.02em;
+  font-weight: 800; margin: 0.3rem 0 0;
+  text-wrap: balance;
 }
 .card__resumo {
-  font-size: 0.95rem; line-height: 1.55;
+  font-size: 0.9rem; line-height: 1.55;
   color: var(--ink-secondary); margin: 0 0 0.5rem;
 }
 .card__rodape {
