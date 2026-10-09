@@ -65,7 +65,7 @@ Mais dois exemplos, em áreas diferentes:
 
 **Comercial.** ~~Prospecção ativa e gestão de pipeline~~ → *O time prospectava por volume e fechava pouco, porque falava com quem atendia o telefone e não com quem decidia. Reorganizei a abordagem para chegar direto na área que sentia a dor. O ciclo de venda encurtou de 90 para 60 dias.*
 
-## E quando não existe número?
+## Quando não existe número?
 
 Muita função boa não tem métrica limpa. Isso não te condena a escrever genérico. Existem outras formas de dar tamanho ao que você fez:
 

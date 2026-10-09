@@ -10,7 +10,7 @@ de paraquedas na parte 3 pelo Instagram não fica sem contexto.
 | 1 | Headline / posicionamento | "Seu LinkedIn está correto e mesmo assim ninguém te chama" | ✅ escrita |
 | 2 | Seção Sobre | "O campo que todo mundo deixa vazio e é o que mais converte" | ✅ escrita |
 | 3 | Experiências | "Pare de listar tarefas. Ninguém contrata tarefa." | ✅ escrita |
-| 4 | Presença / conteúdo | "Como aparecer no LinkedIn sem virar influencer" | a escrever |
+| 4 | Presença / conteúdo | "Como aparecer no LinkedIn sem virar influencer" | ✅ escrita |
 
 ---
 
@@ -70,7 +70,7 @@ chegar até ele."
 
 ---
 
-## Parte 4. Aparecer sem virar influencer
+## Parte 4. Você não precisa postar ✅
 
 **Ângulo:** o medo real não é de postar, é de se expor e de "não ter nada
 relevante para dizer". E a maior parte da oportunidade não vem de post,
