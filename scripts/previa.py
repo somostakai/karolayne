@@ -31,7 +31,9 @@ def embutir(pagina: Path) -> str:
 
     # 1. folha de estilo -> <style> inline
     def trocar_css(m: re.Match) -> str:
-        alvo = (base / m.group(1)).resolve()
+        # O href carrega o ?v=<hash> que quebra o cache do navegador. Em disco
+        # o arquivo não tem esse sufixo, então ele sai antes de procurar.
+        alvo = (base / m.group(1).split("?", 1)[0]).resolve()
         if not alvo.is_file():
             return m.group(0)
         return f"<style>\n{alvo.read_text(encoding='utf-8')}\n</style>"

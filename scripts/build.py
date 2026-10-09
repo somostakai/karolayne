@@ -662,7 +662,12 @@ def construir_pagina_serie(nome: str, lista: list[Edicao], series: dict,
     descricoes = cfg.get("site", {}).get("descricao_series", {})
     descricao = descricoes.get(nome) or f"Tudo que eu já escrevi por aqui sobre {nome}."
 
-    conteudo = f'<ul class="cards">{cartoes_html(lista, "../")}</ul>'
+    # A página de assunto usa a mesma moldura de vidro da capa, para o cartão
+    # não ficar solto no fundo.
+    conteudo = (f'<section class="grupo">'
+                f'<div class="grupo__topo"><h2 class="grupo__titulo">Todos os textos</h2></div>'
+                f'<ul class="cards">{cartoes_html(lista, "../")}</ul>'
+                f'</section>')
 
     return construir_lista(
         cfg, template,
